@@ -1,4 +1,49 @@
-h1{
-    font-size: 30px;
-    text-align: center;
+.background-style{
+    width:1050px; margin:0 auto; background-color: #bcebdb;     height: 100%;    padding-top: 20px; padding-bottom: 20px;
 }
+h1{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fields{
+    width:910px;
+    margin:0 auto;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.3fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 0px;
+    align-items: center;
+    button{
+        margin-top: 20px;
+        span{
+            margin-left: 3px;
+        }
+    }
+    }
+
+    .my-table{
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top:20px;
+        table{
+            margin:0 auto; 
+        }
+    }
+
+    .wider{
+        min-width: 562px;
+    }
+.col-num{
+    min-width: 155px;
+}
+
+.col-action{
+    min-width: 140px;
+} 
+
