@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:mguide/drawer.dart';
+import 'package:mguide/mainPage.dart';
 import 'package:mguide/randomWords.dart';
 
 void main() => runApp(MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.black,
           ),
         ),
-        home: drawer());
+        home: MainPage());
   }
 }
 
