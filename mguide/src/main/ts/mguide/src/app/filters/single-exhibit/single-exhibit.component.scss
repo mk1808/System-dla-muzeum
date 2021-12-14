@@ -12,6 +12,14 @@ h1{
     margin:0 auto;
 }
 
+.parent1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr;
+    grid-column-gap: 330px;
+    grid-row-gap: 0px;
+    align-items: center;}
+
 .parent {
     display: grid;
     grid-template-columns: 1fr 0.7fr ;
@@ -49,4 +57,21 @@ h1{
 
 .field{
     margin-bottom: 0px;
+}
+
+.my-table{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top:20px;
+    width: 910px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    background-color: white;
+  
+}
+
+.ql-toolbar.ql-snow+.ql-container.ql-snow {
+ 
+    height: 285px!important;
 }

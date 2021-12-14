@@ -7,6 +7,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { FiltersComponent } from './filters/filters.component';
+import { SingleExhibitComponent } from './filters/single-exhibit/single-exhibit.component';
+import { FormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/auth.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -14,13 +18,21 @@ import { FiltersComponent } from './filters/filters.component';
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    FiltersComponent
+    FiltersComponent,
+    SingleExhibitComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    QuillModule.forRoot(),
+
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+    
+  ]
 })
 export class AppModule { }
