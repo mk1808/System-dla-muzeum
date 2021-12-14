@@ -1,0 +1,53 @@
+.background-style{
+    width: 900px;
+    margin: 0 auto;
+    background-color: #bcebdb;
+    height: 600px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+h1{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fields{
+    width:910px;
+    margin:0 auto;
+}
+
+.parent {
+    display: grid;
+    max-width:400px;
+    align-items: center;
+    button{
+        margin-top: 20px;
+        span{
+            margin-left: 3px;
+        }
+    }
+    }
+
+    .my-table{
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top:20px;
+        table{
+            margin:0 auto; 
+        }
+    }
+
+    .wider{
+        min-width: 562px;
+    }
+.col-num{
+    min-width: 155px;
+}
+
+.col-action{
+    min-width: 140px;
+} 
+
