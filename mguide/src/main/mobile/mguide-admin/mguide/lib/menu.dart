@@ -36,7 +36,7 @@ class _menuState extends State<menu> {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.cyan[600],///tło nagłówka drawera
             ),
             child: Text(
               'Aplikacja Mguide',
