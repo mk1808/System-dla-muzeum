@@ -1,4 +1,6 @@
 
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:mguidevisitor/menu.dart';
 
@@ -54,14 +56,14 @@ class _MainPageState extends State<MainPage> {
         Container(
           padding: const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 20.0),
           height: 160.0,
-          child: Text('Aplikacja administratora systemu MGuide dla Muzeum ABC',
+          child: Text('Witaj w aplikacji Muzeum 2.0 dla Muzeum XYZ',
               textAlign: TextAlign.center, style: _biggerFont2),
         ),
         Container(
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
           height: 300.0,
           child: Text(
-              'Za pomocą tego narzędzia można powiązać eksponaty z punktami w pomieszczeniach muzeum. W tym celu należy wejść w tryb wiązania, następnie przejść w miejsce, gdzie znajduje się eksponat. Będąc na miejscu należy nacisnąć przycisk "Powiąż miejsce z eksponatem", a następnie wybrać z listy dostępnych pozycji odpowiedni eksponat.',
+              'Zapraszamy Cię do zwiedzenia muzeum z naszym elektronicznym przewodnikiem. Po kliknięciu przycisku "Rozpocznij zwiedzanie" będziesz mógł zwiedzać muzeum we własnym tempie tak, jak lubisz. Kiedy znajdziesz się w pobliżu eksponatu wartego szczególnej uwagi, powiadomimy Cię o tym za pomocą aplikacji. Wtedy będziesz mógł tutaj przeczytać więcej informacji odnośnie tego wyjątkowego eksponatu ',
               textAlign: TextAlign.center,
               style: midFont),
         ),
@@ -69,6 +71,10 @@ class _MainPageState extends State<MainPage> {
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
             child: SizedBox(width: 300, height: 50, child: getButton())),
+            Container(
+            padding:
+                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+            child: SizedBox(width: 300, height: 50, child: getButton2())),
       ],
     ));
   }
@@ -83,7 +89,25 @@ class _MainPageState extends State<MainPage> {
 
   getButton() {
     return ElevatedButton.icon(
-        label: Text('Rozpocznij mapowanie'),
+        label: Text('Rozpocznij zwiedzanie'),
+        icon: Icon(
+          Icons.east,
+          color: Colors.white,
+          size: 30.0,
+        ),
+        onPressed: () {
+          print('Pressed');
+         // Navigator.push(context,
+              //MaterialPageRoute(builder: (context) => StartExhibitsMapping()));
+        },
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        ));
+  }
+
+    getButton2() {
+    return ElevatedButton.icon(
+        label: Text('Informacje o muzeum'),
         icon: Icon(
           Icons.east,
           color: Colors.white,
