@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:mguide/menu.dart';
 import 'package:mguide/startExhibitsMapping.dart';
 
 class MyTable extends StatefulWidget {
@@ -13,17 +14,18 @@ class MyTable extends StatefulWidget {
 class _MyTableState extends State<MyTable> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return  Scaffold(
           appBar: AppBar(
             title: Text('Flutter DataTable Example'),
           ),
-          body: wholeTable
+             drawer: menu(),
+          body:MaterialApp(
+      home: wholeTable)
 
 
 
 
-            ),
+            
     );
   }
 var wholeTable = ListView(

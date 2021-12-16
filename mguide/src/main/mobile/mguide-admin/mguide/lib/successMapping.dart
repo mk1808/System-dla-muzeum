@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mguide/menu.dart';
 
 class SuccessMapping extends StatefulWidget {
   const SuccessMapping({ Key? key }) : super(key: key);
@@ -10,8 +11,15 @@ class SuccessMapping extends StatefulWidget {
 class _SuccessMappingState extends State<SuccessMapping> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Rozpocznij mapowanie'),
+        ),
+        drawer: menu(),
+        body: getCenter3());
+  }
+
+    getCenter3() {
+  
   }
 }
