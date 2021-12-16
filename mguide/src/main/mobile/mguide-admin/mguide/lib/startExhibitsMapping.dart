@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mguide/chooseExhibitForMapping.dart';
+import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
 
 class StartExhibitsMapping extends StatefulWidget {
@@ -148,7 +150,7 @@ return TextFormField(
         onPressed: () {
           print('Pressed');
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => StartExhibitsMapping()));
+              MaterialPageRoute(builder: (context) => ChooseExhibitForMapping()));
         },
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
@@ -167,7 +169,7 @@ return TextFormField(
         onPressed: () {
           print('Pressed');
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => StartExhibitsMapping()));
+              MaterialPageRoute(builder: (context) => MainPage()));
         },
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
