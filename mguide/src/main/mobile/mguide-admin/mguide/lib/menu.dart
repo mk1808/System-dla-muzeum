@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:mguide/chooseExhibitForMapping.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/startExhibitsMapping.dart';
 import 'package:mguide/randomWords.dart';
@@ -60,6 +61,12 @@ class _menuState extends State<menu> {
             leading: Icon(Icons.settings),
             title: Text('TEST'),
             onTap: () => navigateTo(context, new MyTable())),
+            ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('ChooseExhibitForMapping'),
+            onTap: () => navigateTo(context, new ChooseExhibitForMapping())),
+
+            
         ],
       ),
     );
