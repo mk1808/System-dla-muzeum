@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/mapExhibitsStart.dart';
 import 'package:mguide/randomWords.dart';
+import 'package:mguide/myTable.dart';
 //typedef CustomCallBack = RandomWords Function();
 class menu extends StatefulWidget {
   const menu({Key? key}) : super(key: key);
@@ -55,6 +56,10 @@ class _menuState extends State<menu> {
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () => navigateTo(context, new RandomWords())),
+            ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('TEST'),
+            onTap: () => navigateTo(context, new MyTable())),
         ],
       ),
     );
