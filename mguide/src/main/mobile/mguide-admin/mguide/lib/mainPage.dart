@@ -75,10 +75,10 @@ class _MainPageState extends State<MainPage> {
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
             child: SizedBox(width: 300, height: 50, child: getButton())),
-        Container(
+     /*   Container(
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-            child: getTab())
+            child: getTab())*/
       ],
     ));
   }
