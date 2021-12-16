@@ -47,14 +47,14 @@ class _menuState extends State<menu> {
             ),
           ),
           ListTile(
-              leading: Icon(Icons.message),
+              leading: Icon(Icons.star_rounded ),
               title: Text('Strona główna'),
               onTap: () => navigateTo(context, new MainPage())),
           ListTile(
-              leading: Icon(Icons.account_circle),
+              leading: Icon(Icons.star_rounded ),
               title: Text('Mapowanie eksponatów'),
               onTap: () => navigateTo(context, new StartExhibitsMapping())),
-          ListTile(
+          /*ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () => navigateTo(context, new RandomWords())),
@@ -70,7 +70,7 @@ ListTile(
             leading: Icon(Icons.settings),
             title: Text('SuccessMapping'),
             onTap: () => navigateTo(context, new SuccessMapping())),
-            
+           */ 
         ],
       ),
     );
