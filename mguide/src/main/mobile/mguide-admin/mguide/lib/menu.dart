@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mguide/mainPage.dart';
-import 'package:mguide/mapExhibitsStart.dart';
+import 'package:mguide/startExhibitsMapping.dart';
 import 'package:mguide/randomWords.dart';
 import 'package:mguide/myTable.dart';
 //typedef CustomCallBack = RandomWords Function();
@@ -51,7 +51,7 @@ class _menuState extends State<menu> {
           ListTile(
               leading: Icon(Icons.account_circle),
               title: Text('Mapowanie eksponatów'),
-              onTap: () => navigateTo(context, new MapExhibitsStart())),
+              onTap: () => navigateTo(context, new StartExhibitsMapping())),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:mguide/mapExhibitsStart.dart';
+import 'package:mguide/startExhibitsMapping.dart';
 import 'package:mguide/menu.dart';
 
 class MainPage extends StatefulWidget {
@@ -102,7 +102,7 @@ class _MainPageState extends State<MainPage> {
         onPressed: () {
           print('Pressed');
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => MapExhibitsStart()));
+              MaterialPageRoute(builder: (context) => StartExhibitsMapping()));
         },
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),

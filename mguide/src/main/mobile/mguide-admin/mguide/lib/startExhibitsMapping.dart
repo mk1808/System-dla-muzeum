@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mguide/menu.dart';
 
-class MapExhibitsStart extends StatefulWidget {
-  const MapExhibitsStart({Key? key}) : super(key: key);
+class StartExhibitsMapping extends StatefulWidget {
+  const StartExhibitsMapping({Key? key}) : super(key: key);
 
   @override
-  _MapExhibitsStartState createState() => _MapExhibitsStartState();
+  _StartExhibitsMappingState createState() => _StartExhibitsMappingState();
 }
 
-class _MapExhibitsStartState extends State<MapExhibitsStart> {
+class _StartExhibitsMappingState extends State<StartExhibitsMapping> {
   final _biggerFont = const TextStyle(fontSize: 100.0);
   final _biggerFont2 =
       const TextStyle(fontSize: 27.0, fontWeight: FontWeight.w600);
@@ -124,7 +124,7 @@ return TextFormField(
         onPressed: () {
           print('Pressed');
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => MapExhibitsStart()));
+              MaterialPageRoute(builder: (context) => StartExhibitsMapping()));
         },
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
