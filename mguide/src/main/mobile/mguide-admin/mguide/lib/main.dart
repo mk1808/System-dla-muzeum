@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Startup Name Generator',
+        title: 'Mguide Admin',
         theme: ThemeData(
           primaryColor: Colors.cyan[600],
           elevatedButtonTheme: ElevatedButtonThemeData(
