@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mguidevisitor/mainPage.dart';
+import 'package:mguidevisitor/museumInfo.dart';
 
 class Menu extends StatefulWidget {
   const Menu({ Key? key }) : super(key: key);
@@ -43,6 +44,10 @@ class _MenuState extends State<Menu> {
               leading: Icon(Icons.star_rounded ),
               title: Text('Strona główna'),
               onTap: () => navigateTo(context, new MainPage())),
+              ListTile(
+              leading: Icon(Icons.star_rounded ),
+              title: Text('Informacje o muzeum'),
+              onTap: () => navigateTo(context, new MuseumInfo())),
          /* ListTile(
               leading: Icon(Icons.star_rounded ),
               title: Text('Mapowanie eksponatów'),

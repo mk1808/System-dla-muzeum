@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mguidevisitor/menu.dart';
+import 'package:mguidevisitor/museumInfo.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({ Key? key }) : super(key: key);
@@ -115,8 +116,8 @@ class _MainPageState extends State<MainPage> {
         ),
         onPressed: () {
           print('Pressed');
-         // Navigator.push(context,
-              //MaterialPageRoute(builder: (context) => StartExhibitsMapping()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => MuseumInfo()));
         },
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
