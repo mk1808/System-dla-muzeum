@@ -6,6 +6,7 @@ import 'package:mguide/mainPage.dart';
 import 'package:mguide/startExhibitsMapping.dart';
 import 'package:mguide/randomWords.dart';
 import 'package:mguide/myTable.dart';
+import 'package:mguide/successMapping.dart';
 //typedef CustomCallBack = RandomWords Function();
 class menu extends StatefulWidget {
   const menu({Key? key}) : super(key: key);
@@ -65,7 +66,10 @@ class _menuState extends State<menu> {
             leading: Icon(Icons.settings),
             title: Text('ChooseExhibitForMapping'),
             onTap: () => navigateTo(context, new ChooseExhibitForMapping())),
-
+ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('SuccessMapping'),
+            onTap: () => navigateTo(context, new SuccessMapping())),
             
         ],
       ),
