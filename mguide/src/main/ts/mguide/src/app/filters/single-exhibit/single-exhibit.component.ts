@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -42,7 +43,7 @@ modules = {
     ]
   };
 htmlContent="";
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -51,6 +52,13 @@ htmlContent="";
     editor.format('direction', 'ltr')
   }
   
+  onCancelClick(){
+    this.router.navigate(['/filters']);
+  }
+  onSaveClick(){
+    this.router.navigate(['/filters']);
+  }
+
 
 }
 
