@@ -1,5 +1,5 @@
 .background-style{
-    width:1050px; margin:0 auto; background-color: #bcebdb;     height: 100%;    padding-top: 20px; padding-bottom: 20px;
+    width:1050px; margin:0 auto; background-color: #bcebdb;     height: 100%;    padding-top: 20px; padding-bottom: 35px;
 }
 h1{
     font-size: 35px;
@@ -27,6 +27,7 @@ h1{
     grid-column-gap: 30px;
     grid-row-gap: 0px;
     align-items: center;
+    margin-bottom: 30px;
     button{
         margin-top: 20px;
         span{
@@ -61,8 +62,8 @@ h1{
 
 .my-table{
     text-align: center;
-    margin-bottom: 20px;
-    margin-top:20px;
+    margin-bottom: 30px;
+    margin-top:0px;
     width: 910px;
     margin-left: auto;
     margin-right: auto;
@@ -73,5 +74,30 @@ h1{
 
 .ql-toolbar.ql-snow+.ql-container.ql-snow {
  
-    height: 285px!important;
+    //height: 285px!important;
+}
+
+::ng-deep{
+    .ql-container{
+        max-height: calc(100% - 42px);
+    }
+}
+
+.my-photo-upload{
+    width: 912px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+.label{ 
+    &.text-editor{
+    width: 912px;
+    }
+
+    &.align{
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        }
 }

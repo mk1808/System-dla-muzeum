@@ -2,25 +2,34 @@
   <h1>Dodawanie nowego eksponatu</h1>
   <div class="fields parent">
     <div class="field">
-      <label class="label">Nazwa</label>
+      <label class="label align">Nazwa eksponatu</label>
       <div class="control">
         <input class="input" type="text" placeholder="Nazwa">
       </div>
     </div>
     <div class="field">
-      <label class="label">Numer</label>
+      <label class="label align">Numer eksponatu</label>
       <div class="control">
         <input class="input" type="text" placeholder="Numer">
       </div>
     </div>
 
   </div>
-
+   <label class="label align text-editor">Treść</label>
   <div class="my-table">
-
+ 
 
     <quill-editor (onEditorCreated)="activateRTL($event)" [modules]="modules"></quill-editor>
   </div>
+
+
+     <label class="label text-editor align">Zdjęcie</label>
+  <ngx-dropzone class="my-photo-upload"(change)="onSelect($event)">
+    <ngx-dropzone-label>Załaduj zdjęcie</ngx-dropzone-label>
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+    </ngx-dropzone-image-preview>
+  </ngx-dropzone>
+
 
   <div class="fields parent1">
      <button class="button "> <span>Anuluj</span></button>

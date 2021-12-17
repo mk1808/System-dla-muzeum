@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 
 
 @Component({
@@ -7,6 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-exhibit.component.scss']
 })
 export class SingleExhibitComponent implements OnInit {
+
+  files: File[] = [];
+
+  onSelect(event) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+  
+  onRemove(event) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+
 modules = {
     toolbar: [
       ['bold', 'italic', 'underline'],//, 'strike'],        
@@ -33,9 +47,10 @@ htmlContent="";
   ngOnInit(): void {
   }
   activateRTL(editor) {
-    editor.format('align', 'right')
-    editor.format('direction', 'rtl')
+    editor.format('align', 'left')
+    editor.format('direction', 'ltr')
   }
+  
 
 }
 

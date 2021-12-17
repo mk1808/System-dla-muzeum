@@ -11,6 +11,7 @@ import { SingleExhibitComponent } from './filters/single-exhibit/single-exhibit.
 import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { QuillModule } from 'ngx-quill';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -20,14 +21,15 @@ import { QuillModule } from 'ngx-quill';
     FooterComponent,
     FiltersComponent,
     SingleExhibitComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     QuillModule.forRoot(),
 
-    FormsModule
+    FormsModule,
+    NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -36,3 +38,29 @@ import { QuillModule } from 'ngx-quill';
   ]
 })
 export class AppModule { }
+
+
+/**linear-gradient(36deg, rgba(255,255,255,1) 3%, rgba(188,235,219,1) 59%, rgb(43 181 160) 100%)
+ * 
+ * 
+ * width: 1050px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    height: 100%;
+   
+    padding-bottom: 20px;
+ */
+
+    /**
+     * 
+     * 
+     *     padding-top: 20px;
+   
+    padding-bottom: 20px;
+
+    text-align: left;
+    padding-left: 20px;
+    background: rgb(255,255,255);
+    background: linear-gradient(
+36deg, rgba(255,255,255,1) 3%, rgba(188,235,219,1) 59%, rgb(43 181 160) 100%);
+     */
