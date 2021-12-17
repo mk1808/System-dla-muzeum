@@ -2,6 +2,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/museumInfo.dart';
 
@@ -98,8 +99,8 @@ class _MainPageState extends State<MainPage> {
         ),
         onPressed: () {
           print('Pressed');
-         // Navigator.push(context,
-              //MaterialPageRoute(builder: (context) => StartExhibitsMapping()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => DuringVisiting()));
         },
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
