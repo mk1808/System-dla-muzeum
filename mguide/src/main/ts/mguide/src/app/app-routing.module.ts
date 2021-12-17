@@ -6,12 +6,12 @@ import { SingleExhibitComponent } from './filters/single-exhibit/single-exhibit.
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/exhibit', pathMatch: 'full' },
+  { path: '', redirectTo: '/filters', pathMatch: 'full' },
   { path: 'filters', component: FiltersComponent },
   { path: 'exhibit', component: SingleExhibitComponent },
   { path: 'login', component: AuthComponent },
   
-  { path: '**', redirectTo: '/exhibit' }
+  { path: '**', redirectTo: '/filters' }
 ];
 
 @NgModule({

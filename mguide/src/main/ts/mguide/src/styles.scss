@@ -3,3 +3,7 @@
 @import '~quill/dist/quill.core.css';
 @import '~quill/dist/quill.bubble.css';
 @import '~quill/dist/quill.snow.css';
+
+.full-height {
+    min-height: calc(100vh - 230px);
+ }
