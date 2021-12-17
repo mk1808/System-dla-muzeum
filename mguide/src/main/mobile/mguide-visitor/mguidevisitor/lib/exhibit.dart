@@ -121,7 +121,7 @@ whole(){
         onPressed: () {
           print('Pressed');
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Exhibit()));
+              MaterialPageRoute(builder: (context) => DuringVisiting()));
         },
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),

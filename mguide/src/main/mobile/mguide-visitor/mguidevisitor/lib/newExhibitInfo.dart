@@ -65,7 +65,11 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
           height: 160.0,
           child: Text('Obraz "Bitwa pod Grunwaldem"',
               textAlign: TextAlign.center, style: _biggerFont2),
-        ),
+        ),Container(
+              padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+              height: 300.0,
+              // color: Colors.yellow,
+              child: Image(image: AssetImage('./assets/index.jpg'))),
       
         Container(
             padding:
