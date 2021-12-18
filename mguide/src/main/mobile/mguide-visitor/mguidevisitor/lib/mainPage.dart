@@ -60,7 +60,7 @@ class _MainPageState extends State<MainPage> {
         Container(
           padding: const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 20.0),
           height: 160.0,
-          child: Text('Witaj w aplikacji Muzeum 2.0 dla Muzeum XYZ',
+          child: Text('Witaj w aplikacji mGuide dla Muzeum Narodowego',
               textAlign: TextAlign.center, style: _biggerFont2),
         ),
         Container(

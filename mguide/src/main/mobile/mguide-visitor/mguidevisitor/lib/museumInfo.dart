@@ -99,7 +99,7 @@ class _MuseumInfoState extends State<MuseumInfo> {
                       Container(
                           padding:
                               const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 8.0),
-                          child: Text('Muzeum XYZ',
+                          child: Text('Muzeum Narodowe',
                               textAlign: TextAlign.left, style: midFont)),
                       Container(
                           padding:
@@ -114,7 +114,7 @@ class _MuseumInfoState extends State<MuseumInfo> {
                       Container(
                           padding:
                               const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 10.0),
-                          child: Text('email: kontakt@muzeumXYZ.pl',
+                          child: Text('email: kontakt@muzeum.pl',
                               textAlign: TextAlign.left, style: midFont)),
                     ],
                   )),

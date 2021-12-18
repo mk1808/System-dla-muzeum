@@ -39,7 +39,7 @@ class _menuState extends State<menu> {
               color: Colors.cyan[600],///tło nagłówka drawera
             ),
             child: Text(
-              'Aplikacja Mguide',
+              'Aplikacja mGuide',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,

@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mguide Admin',
+      title: 'mGuide Admin',
         theme: ThemeData(
           primaryColor: Colors.cyan[600],
           elevatedButtonTheme: ElevatedButtonThemeData(
