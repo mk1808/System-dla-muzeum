@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/myAppBar.dart';
@@ -268,9 +269,9 @@ whole(){
 
   getButton() {
     return ElevatedButton.icon(
-        label: Text('Zamknij'),
+        label: Text('Kontynuuj zwiedzanie'),
         icon: Icon(
-          Icons.east,
+           FontAwesomeIcons.walking,
           color: Colors.white,
           size: 30.0,
         ),
@@ -288,7 +289,7 @@ whole(){
     return ElevatedButton.icon(
         label: Text('Wróć'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.longArrowAltLeft,
           color: Colors.white,
           size: 30.0,
         ),

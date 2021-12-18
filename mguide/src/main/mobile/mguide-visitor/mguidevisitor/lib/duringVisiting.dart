@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/museumInfo.dart';
@@ -105,7 +106,7 @@ class _DuringVisitingState extends State<DuringVisiting> {
     return ElevatedButton.icon(
         label: Text('Zakończ'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.longArrowAltLeft,
           color: Colors.white,
           size: 30.0,
         ),

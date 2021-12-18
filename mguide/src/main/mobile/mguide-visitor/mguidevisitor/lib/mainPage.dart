@@ -7,6 +7,7 @@ import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/museumInfo.dart';
 import 'package:mguidevisitor/myAppBar.dart';
 import 'package:mguidevisitor/myLogo.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({ Key? key }) : super(key: key);
@@ -95,7 +96,7 @@ class _MainPageState extends State<MainPage> {
     return ElevatedButton.icon(
         label: Text('Rozpocznij zwiedzanie'),
         icon: Icon(
-          Icons.east,
+         FontAwesomeIcons.walking,
           color: Colors.white,
           size: 30.0,
         ),
@@ -113,7 +114,7 @@ class _MainPageState extends State<MainPage> {
     return ElevatedButton.icon(
         label: Text('Informacje o muzeum'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.infoCircle, 
           color: Colors.white,
           size: 30.0,
         ),

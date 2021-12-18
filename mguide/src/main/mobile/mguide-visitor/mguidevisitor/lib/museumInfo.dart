@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/myAppBar.dart';
@@ -127,7 +128,7 @@ class _MuseumInfoState extends State<MuseumInfo> {
               Container(
                   padding: const EdgeInsets.symmetric(
                       vertical: 20.0, horizontal: 20.0),
-                  child: SizedBox(width: 200, height: 50, child: getButton2())),
+                  child: SizedBox(width: 300, height: 50, child: getButton2())),
               /*  Container(
               padding:
                   const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
@@ -159,7 +160,7 @@ class _MuseumInfoState extends State<MuseumInfo> {
     return ElevatedButton.icon(
         label: Text('Wróć'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.longArrowAltLeft,
           color: Colors.white,
           size: 30.0,
         ),

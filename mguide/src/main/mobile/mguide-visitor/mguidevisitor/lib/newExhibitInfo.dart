@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/exhibit.dart';
 import 'package:mguidevisitor/menu.dart';
@@ -96,7 +97,7 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
     return ElevatedButton.icon(
         label: Text('Zobacz opis'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.clipboardList,
           color: Colors.white,
           size: 30.0,
         ),
@@ -114,7 +115,7 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
     return ElevatedButton.icon(
         label: Text('Wróć'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.longArrowAltLeft,
           color: Colors.white,
           size: 30.0,
         ),
