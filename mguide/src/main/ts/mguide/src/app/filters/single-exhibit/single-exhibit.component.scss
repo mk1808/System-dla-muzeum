@@ -1,11 +1,7 @@
 .background-style{
     width:1050px; margin:0 auto; background-color: #bcebdb;     height: 100%;    padding-top: 20px; padding-bottom: 35px;
 }
-h1{
-    font-size: 35px;
-    text-align: center;
-    margin-bottom: 20px;
-}
+
 
 .fields{
     width:910px;
@@ -90,14 +86,3 @@ h1{
     margin-bottom: 40px;
 }
 
-.label{ 
-    &.text-editor{
-    width: 912px;
-    }
-
-    &.align{
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-        }
-}

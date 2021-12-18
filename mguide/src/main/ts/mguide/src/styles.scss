@@ -7,3 +7,24 @@
 .full-height {
     min-height: calc(100vh - 230px);
  }
+
+ .title{
+    font-weight: 700;
+    text-align: left;
+    margin-left: 31px;
+    font-size: 35px;
+    margin-bottom: 27px;
+    font-weight: 700;
+}
+
+.label{ 
+    &.text-editor{
+    width: 912px;
+    }
+
+    &.align{
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        }
+}
