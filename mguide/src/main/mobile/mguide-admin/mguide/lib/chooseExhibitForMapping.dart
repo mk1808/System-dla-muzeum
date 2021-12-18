@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
 import 'package:mguide/myAppBar.dart';
@@ -55,7 +56,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
                           Container(
               padding:
                   const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-              child: SizedBox(width: 200, height: 50, child: getButton2())),
+              child: SizedBox(width: 300, height: 50, child: getButton2())),
                 ],
               )),
         ]);
@@ -65,7 +66,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
     return ElevatedButton.icon(
         label: Text('Zakończ'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.longArrowAltLeft,
           color: Colors.white,
           size: 30.0,
         ),
@@ -97,7 +98,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
   getInput() {
     return TextFormField(
       decoration: const InputDecoration(
-        hintText: 'Wpisz nazwę',
+        hintText: 'Wyszukaj po nazwie',
       ),
       validator: (String? value) {
         if (value == null || value.isEmpty) {

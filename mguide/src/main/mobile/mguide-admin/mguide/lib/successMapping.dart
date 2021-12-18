@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
 import 'package:mguide/myAppBar.dart';
@@ -25,12 +26,26 @@ class _SuccessMappingState extends State<SuccessMapping> {
         drawer: menu(),
         body: getCenter3());
   }
-
+/**Icon(
+          FontAwesomeIcons.clipboardList,
+          color: Colors.white,
+          size: 30.0,
+        ), */
      getCenter3() {
     return Center(
         child: Column(
       //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+          Container(
+          padding: const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 50.0),
+          height: 80.0,
+          // color: Colors.yellow,
+          child: Icon(
+          FontAwesomeIcons.clipboardCheck,
+          color: Colors.lightGreen,
+          size: 50.0,
+        ),),
+
         Container(
           padding: const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 20.0),
           height: 160.0,
@@ -54,7 +69,7 @@ class _SuccessMappingState extends State<SuccessMapping> {
                Container(
               padding:
                   const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-              child: SizedBox(width: 200, height: 50, child: getButton2())),
+              child: SizedBox(width: 300, height: 50, child: getButton2())),
     
       ],
     ));
@@ -64,7 +79,7 @@ class _SuccessMappingState extends State<SuccessMapping> {
     return ElevatedButton.icon(
         label: Text('Kontynuuj mapowanie'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.clipboardList,
           color: Colors.white,
           size: 30.0,
         ),
@@ -82,7 +97,7 @@ class _SuccessMappingState extends State<SuccessMapping> {
     return ElevatedButton.icon(
         label: Text('Zakończ'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.longArrowAltLeft,
           color: Colors.white,
           size: 30.0,
         ),

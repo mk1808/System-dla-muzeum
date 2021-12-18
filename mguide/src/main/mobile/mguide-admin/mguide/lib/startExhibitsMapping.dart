@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguide/chooseExhibitForMapping.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
@@ -106,7 +107,7 @@ class _StartExhibitsMappingState extends State<StartExhibitsMapping> {
                Container(
               padding:
                   const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-              child: SizedBox(width: 200, height: 50, child: getButton2())),
+              child: SizedBox(width: 300, height: 50, child: getButton2())),
         /*  Container(
               padding:
                   const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
@@ -144,7 +145,7 @@ return TextFormField(
     return ElevatedButton.icon(
         label: Text('Powiąż miejsce z eksponatem'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.link,
           color: Colors.white,
           size: 30.0,
         ),
@@ -165,7 +166,7 @@ return TextFormField(
     return ElevatedButton.icon(
         label: Text('Zakończ'),
         icon: Icon(
-          Icons.east,
+          FontAwesomeIcons.longArrowAltLeft,
           color: Colors.white,
           size: 30.0,
         ),
