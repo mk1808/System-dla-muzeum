@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/menu.dart';
+import 'package:mguidevisitor/myAppBar.dart';
 class Exhibit extends StatefulWidget {
   const Exhibit({ Key? key }) : super(key: key);
 
@@ -244,9 +245,7 @@ getTab2() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Opis eksponatu'),
-        ),
+        appBar: MyAppBar(),
         drawer: Menu(),
         body: whole());
   }

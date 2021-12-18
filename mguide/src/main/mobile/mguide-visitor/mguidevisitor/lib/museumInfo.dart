@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/menu.dart';
+import 'package:mguidevisitor/myAppBar.dart';
 
 class MuseumInfo extends StatefulWidget {
   const MuseumInfo({Key? key}) : super(key: key);
@@ -278,9 +279,7 @@ class _MuseumInfoState extends State<MuseumInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Informacje o muzeum'),
-        ),
+        appBar: MyAppBar(),
         drawer: Menu(),
         body: getCenter3());
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/museumInfo.dart';
+import 'package:mguidevisitor/myAppBar.dart';
 
 class DuringVisiting extends StatefulWidget {
   const DuringVisiting({Key? key}) : super(key: key);
@@ -215,9 +216,7 @@ class _DuringVisitingState extends State<DuringVisiting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Zwiedzanie'),
-        ),
+        appBar: MyAppBar(),
         drawer: Menu(),
         body: getCenter3());
   }

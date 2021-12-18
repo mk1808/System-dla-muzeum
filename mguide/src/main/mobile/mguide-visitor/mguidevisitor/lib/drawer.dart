@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mguidevisitor/menu.dart';
+import 'package:mguidevisitor/myAppBar.dart';
 
 class Drawer extends StatefulWidget {
   const Drawer({ Key? key }) : super(key: key);
@@ -13,9 +14,7 @@ class _DrawerState extends State<Drawer> {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-      appBar: AppBar(
-        title: const Text('Drawer Demo'),
-      ),
+      appBar: MyAppBar(),
       drawer: Menu()
     );
   }

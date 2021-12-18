@@ -3,6 +3,7 @@ import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/exhibit.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/museumInfo.dart';
+import 'package:mguidevisitor/myAppBar.dart';
 class NewExhibitInfo extends StatefulWidget {
   const NewExhibitInfo({ Key? key }) : super(key: key);
 
@@ -225,9 +226,7 @@ getTab2() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Nowy eksponat'),
-        ),
+        appBar: MyAppBar(),
         drawer: Menu(),
         body: getCenter3());
   }

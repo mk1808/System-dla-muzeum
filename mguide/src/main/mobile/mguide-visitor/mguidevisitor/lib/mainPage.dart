@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/museumInfo.dart';
+import 'package:mguidevisitor/myAppBar.dart';
+import 'package:mguidevisitor/myLogo.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({ Key? key }) : super(key: key);
@@ -223,9 +225,7 @@ getTab2() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Strona główna'),
-        ),
+        appBar: MyAppBar(),
         drawer: Menu(),
         body: getCenter3());
   }
