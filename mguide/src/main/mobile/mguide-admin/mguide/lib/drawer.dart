@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mguide/menu.dart';
+import 'package:mguide/myAppBar.dart';
 import 'package:mguide/randomWords.dart';
 
 class drawer extends StatefulWidget {
@@ -13,9 +14,7 @@ class _drawerState extends State<drawer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Drawer Demo'),
-      ),
+      appBar: MyAppBar(),
       drawer: menu()
     );
   }

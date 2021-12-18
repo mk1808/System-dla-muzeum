@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:mguide/myAppBar.dart';
 import 'package:mguide/startExhibitsMapping.dart';
 import 'package:mguide/menu.dart';
 
@@ -216,9 +217,7 @@ getTab2() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Strona główna'),
-        ),
+        appBar: MyAppBar(),
         drawer: menu(),
         body: getCenter3());
   }

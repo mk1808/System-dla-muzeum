@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
+import 'package:mguide/myAppBar.dart';
 import 'package:mguide/successMapping.dart';
 
 class ChooseExhibitForMapping extends StatefulWidget {
@@ -17,9 +18,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Mapowanie ekspozycji'),
-        ),
+        appBar: MyAppBar(),
         drawer: menu(),
         body: // MaterialApp(home:
             wholeTable() //)

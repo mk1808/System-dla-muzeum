@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mguide/menu.dart';
+import 'package:mguide/myAppBar.dart';
 import 'package:mguide/startExhibitsMapping.dart';
 
 class MyTable extends StatefulWidget {
@@ -15,9 +16,7 @@ class _MyTableState extends State<MyTable> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-          appBar: AppBar(
-            title: Text('Flutter DataTable Example'),
-          ),
+          appBar: MyAppBar(),
              drawer: menu(),
           body:MaterialApp(
       home: wholeTable)

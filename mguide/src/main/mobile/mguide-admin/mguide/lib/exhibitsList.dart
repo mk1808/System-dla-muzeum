@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mguide/menu.dart';
+import 'package:mguide/myAppBar.dart';
 
 class ExhibitsList extends StatefulWidget {
   const ExhibitsList({ Key? key }) : super(key: key);
@@ -12,9 +13,7 @@ class _ExhibitsListState extends State<ExhibitsList> {
   @override
  Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Rozpocznij mapowanie'),
-        ),
+        appBar: MyAppBar(),
         drawer: menu(),
         body: getCenter3());
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mguide/chooseExhibitForMapping.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
+import 'package:mguide/myAppBar.dart';
 
 class StartExhibitsMapping extends StatefulWidget {
   const StartExhibitsMapping({Key? key}) : super(key: key);
@@ -285,9 +286,7 @@ return TextFormField(
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Rozpocznij mapowanie'),
-        ),
+        appBar: MyAppBar(),
         drawer: menu(),
         body: getCenter3());
   }

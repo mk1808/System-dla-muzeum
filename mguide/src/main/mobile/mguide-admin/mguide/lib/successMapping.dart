@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
+import 'package:mguide/myAppBar.dart';
 import 'package:mguide/startExhibitsMapping.dart';
 
 class SuccessMapping extends StatefulWidget {
@@ -20,9 +21,7 @@ class _SuccessMappingState extends State<SuccessMapping> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Sukces'),
-        ),
+        appBar: MyAppBar(),
         drawer: menu(),
         body: getCenter3());
   }
