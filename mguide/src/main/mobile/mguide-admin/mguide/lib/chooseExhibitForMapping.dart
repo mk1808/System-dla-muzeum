@@ -50,7 +50,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
                        Container(
                       padding:
                           const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 20.0),
-                      height: 1020.0,
+                      height: 600.0,
                       child: getTableWithScroll()),
                           Container(
               padding:
@@ -116,24 +116,46 @@ onTapOk(){
       showCheckboxColumn: false,
       columns: [
         DataColumn(
-            label: Text('ID',
+            label: Text('Numer',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
         DataColumn(
-            label: Text('Name',
+            label: Text('Nazwa eksponatu',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
-        DataColumn(
+        /*DataColumn(
             label: Text('Profession',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
         DataColumn(
             label: Text('Profession1',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),*/
       ],
       rows: [
         DataRow(cells: [
           DataCell(Text('1')),
-          DataCell(Text('Stephen')),
-          DataCell(Text('Actor')),
-          DataCell(Text('Actor')),
+          DataCell(Text('Obraz "Bitwa pod Grunwaldem" - Jan Matejko')),
+        ],
+        onSelectChanged: (newValue) {
+               return getDialog();  
+            },
+        ),
+        DataRow(cells: [
+          DataCell(Text('2')),
+          DataCell(Text('Obraz "Babie lato" – Józef Chełmoński')),
+        ],
+        onSelectChanged: (newValue) {
+               return getDialog();  
+            },
+        ),
+        DataRow(cells: [
+          DataCell(Text('3')),
+          DataCell(Text('Obraz "Bociany" – Józef Chełmoński')),
+        ],
+        onSelectChanged: (newValue) {
+               return getDialog();  
+            },
+        ),
+        DataRow(cells: [
+          DataCell(Text('4')),
+          DataCell(Text('Obraz "Dirce chrześcijańska" – Henryk Siemiradzki')),
         ],
         onSelectChanged: (newValue) {
                return getDialog();  
@@ -141,9 +163,39 @@ onTapOk(){
         ),
         DataRow(cells: [
           DataCell(Text('5')),
-          DataCell(Text('John')),
-          DataCell(Text('Student')),
-          DataCell(Text('Actor')),
+          DataCell(Text('Obraz "Dziwny ogród" – Józef Mehoffer')),
+        ],
+        onSelectChanged: (newValue) {
+               return getDialog();  
+            },
+        ),
+        DataRow(cells: [
+          DataCell(Text('6')),
+          DataCell(Text('Obraz "Stańczyk" - Jan Matejko')),
+        ],
+        onSelectChanged: (newValue) {
+               return getDialog();  
+            },
+        ),
+        DataRow(cells: [
+          DataCell(Text('7')),
+          DataCell(Text('Obraz "Błędne koło" - Jacek Malczewski')),
+        ],
+        onSelectChanged: (newValue) {
+               return getDialog();  
+            },
+        ),
+        DataRow(cells: [
+          DataCell(Text('8')),
+          DataCell(Text('Obraz "AD84" - Zdzisław Beksiński')),
+        ],
+        onSelectChanged: (newValue) {
+               return getDialog();  
+            },
+        ),
+        DataRow(cells: [
+          DataCell(Text('9')),
+          DataCell(Text('Obraz "Dziewczynka z chryzantemami" - Olga Boznańska')),
         ],
         onSelectChanged: (newValue) {
                return getDialog();  
@@ -151,184 +203,13 @@ onTapOk(){
         ),
         DataRow(cells: [
           DataCell(Text('10')),
-          DataCell(Text('Harry')),
-          DataCell(Text('Leader')),
-          DataCell(Text('Actor')),
+          DataCell(Text('Obraz "Dwie Głowy" - Witkacy')),
         ],
         onSelectChanged: (newValue) {
                return getDialog();  
             },
         ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('15')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('16')),
-          DataCell(Text('Peter')),
-          DataCell(Text('Scientist')),
-          DataCell(Text('Actor')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
+
       ],
     );
   }

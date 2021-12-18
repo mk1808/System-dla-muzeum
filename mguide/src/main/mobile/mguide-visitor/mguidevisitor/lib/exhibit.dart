@@ -15,6 +15,12 @@ class _ExhibitState extends State<Exhibit> {
       const TextStyle(fontSize: 27.0, fontWeight: FontWeight.w600);
   double iconSize = 40;
   final midFont = const TextStyle(fontSize: 20.0, fontWeight: FontWeight.w300);
+
+  final headerFont = const TextStyle(fontSize: 30.0, fontWeight: FontWeight.w300);
+  final header2Font = const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w300);
+  final defaultFont = const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w300);
+
+
  getContainer() {
     return Container(
       color: Colors.green,
@@ -61,39 +67,188 @@ whole(){
           Container(
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
           height: 80.0,
-          child: Text(
-              'Eksponat numer 3 ',
-              textAlign: TextAlign.left,
-              style: midFont),
+          child: Text('Eksponat numer 1',
+              textAlign: TextAlign.left, style: midFont),
         ),
         Container(
           padding: const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 10.0),
           height: 120.0,
-          child: Text('Obraz "Bitwa pod Grunwaldem"',
+          child: Text('Obraz "Bitwa pod Grunwaldem" - Jan Matejko',
               textAlign: TextAlign.center, style: _biggerFont2),
         ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
-              height: 300.0,
-              // color: Colors.yellow,
-              child: Image(image: AssetImage('./assets/index.jpg'))),
+        Container(
+            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+            height: 300.0,
+            // color: Colors.yellow,
+            child: Image(image: AssetImage('./assets/index.jpg'))),
         
-      Container(
+        
+        Container(
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
-          height:600.0,
+          //height: 100.0,
           child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis lorem sed mi pellentesque, sed ultricies sem iaculis. Sed non ullamcorper neque, in semper risus. Quisque ac euismod sem, in varius nisl. Maecenas interdum, turpis ac pulvinar consequat, ex arcu ornare orci, vel tristique justo purus semper orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. In sagittis venenatis sem. Etiam euismod porta turpis ac vehicula.Aliquam at consequat leo, in feugiat eros. Pellentesque ultricies sit amet velit sed tempus. Vestibulum molestie mollis elit, a laoreet neque euismod quis. Fusce facilisis mattis ex sodales euismod. Curabitur tincidunt ut justo vel tincidunt. Phasellus a eros dictum elit placerat scelerisque. Integer volutpat, velit sed interdum dignissim, nulla magna pulvina',
+              'Powstanie obrazu',
               textAlign: TextAlign.justify,
-              style: midFont),
+              style: headerFont),
         ),
-          Container(
+        Container(
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
-          height:550.0,
+          //height: 150.0,
           child: Text(
-              'Lorem sed mi pellentesque, sed ultricies sem iaculis. Sed non ullamcorper neque, in semper risus. Quisque ac euismod sem, in varius nisl. Maecenas interdum, turpis ac pulvinar consequat, ex arcu ornare orci, vel tristique justo purus semper orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. In sagittis venenatis sem. Etiam euismod porta turpis ac vehicula.Aliquam at consequat leo, in feugiat eros. Pellentesque ultricies sit amet velit sed tempus. Vestibulum molestie mollis elit, a laoreet neque euismod quis. Fusce facilisis mattis ex sodales euismod. Curabitur tincidunt ut justo vel tincidunt. Phasellus a eros dictum elit placerat scelerisque. Integer volutpat, velit sed interdum dignissim, nulla magna pulvina',
+              'Jan Matejko był wybitnym polskim malarzem. Zajmował się on głównie malarstwem historycznym i batalistycznym. Był on również wielkim patriotą, stąd oczywistym było, że bitwa tak ważna jak bitwa pod Grunwaldem nie mogła pozostać pominięta przez tego wybitnego malarza.',
               textAlign: TextAlign.justify,
-              style: midFont),
+              style: defaultFont),
         ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 100.0,
+          child: Text(
+              'Bitwa pod Grunwaldem była jedną z największych bitew średniowiecznej Europy. Stoczono ją na polach niedaleko wsi Grunwald, 15 lipca 1410 roku. W bitwie starły się siły polsko-litewskie z zakonem krzyżackim. Bitwa zakończyła się zwycięstwem wojsk polsko-litewskich.',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 200.0,
+          child: Text(
+              'Jan Matejko obraz malował w latach 1872–1878. Ponieważ działo się to przeszło 450 lat po rzeczywistych wydarzeniach, w celu oddania historycznej wartości opierał się on na różnych źródłach w celu pozyskania widzey. Głównie bazował na kronikach Jana Długosza.',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+        
+
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 20.0),
+          //height: 100.0,
+          child: Text(
+              'Opis obrazu',
+              textAlign: TextAlign.justify,
+              style: headerFont),
+        ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 150.0,
+          child: Text(
+              'Obraz symbolicznie przedstawia bitwę, która wciąż się toczy, jednak szala zwycięstwa wyraźnie przechyla się w stronę polsko-litewską.',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
+          //height: 100.0,
+          child: Text(
+              'Centrum',
+              textAlign: TextAlign.justify,
+              style: header2Font),
+        ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 100.0,
+          child: Text(
+              'W centrum obrazu widnieje postać księcia litewskiego Witolda. Jest on ubrany w czerwony żupan i mitrę. Nie posiada pancerza, posiada jedynie miecz i tarczę, które unosi w geście zwycięstwa. ',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+        Container(
+            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+            height: 300.0,
+            // color: Colors.yellow,
+            child: Image(image: AssetImage('./assets/centrum.jpg'))),
+
+
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 550.0,
+          child: Text(
+              'Na lewo od księcia Witolda można zobaczyć Ulricha von Jungingena - mistrza zakonu krzyżackiego. Wyraźnie można zauważyć przerażenie na jego twarzy. Przerażenie to wynika z bliskiej obecności dwóch wojowników, którzy chcą mistrza pozbawić życia. ',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+        Container(
+            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+            height: 300.0,
+            // color: Colors.yellow,
+            child: Image(image: AssetImage('./assets/lewa.jpg'))),
+
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
+          //height: 550.0,
+          child: Text(
+              'Lewa strona obrazu',
+              textAlign: TextAlign.justify,
+              style: header2Font),
+        ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 550.0,
+          child: Text(
+              'W tej części główną rolę odgrywa pędzące wsparcie dla mistrza zakonu, w postaci księcia szczecińskiego Kazimierza V. Nie może on jednak przyjść z pomocą mistrzowi, ponieważ jest atakowany przez polskich rycerzy.',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
+          //height: 550.0,
+          child: Text(
+              'Prawa strona obrazu',
+              textAlign: TextAlign.justify,
+              style: header2Font),
+        ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 550.0,
+          child: Text(
+              'W prawej części obrazu widać trwającą walkę pomiędzy najznakomitszymi rycerzami polskimi oraz najważniejszymi rycerzami krzyżackimi. Również w tej części wyraźnie zostało zaznaczone górowanie polskiej siły nad siłami krzyżackimi.',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+        Container(
+            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+            height: 300.0,
+            // color: Colors.yellow,
+            child: Image(image: AssetImage('./assets/prawa.jpg'))),
+
+
+
+
+        
+
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 20.0),
+          //height: 100.0,
+          child: Text(
+              'Ciekawostki',
+              textAlign: TextAlign.justify,
+              style: headerFont),
+        ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 550.0,
+          child: Text(
+              'Obraz po namalowaniu został sprzedany za 45 tysięcy zotych reńskich czyli prawie 200 tysięcy współczesnych złotych.',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 550.0,
+          child: Text(
+              'W latach 2010-2012 odbyła się renowacja obrazu. Kosztowała ponad milion złotych, zużyto ponad 2,5 tysiąca skalpeli i 150 litrów rozpuszczalników. Efektem było pozbycie się starych pozostałości po poprzednich renowacjach oraz innych niedoskonałości, które w sumie odchudziły obraz o 200 kg.',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          //height: 550.0,
+          child: Text(
+              'Na obrazie mistrz Urlich Von Jungingen jest atakowany przez dwóch rycerzy polskich. Jeden z nich trzyma włócznie Świętego Maurycego, która miała symbolizować fałszywość zakonu krzyżackiego. Drugi z atakujących ma na głowie kaptur katowski, a do pasa ma przytroczony jałmużniczkę na monetę od skazańca, co symbolizować może wymierzenie sprawiedliwości.',
+              textAlign: TextAlign.justify,
+              style: defaultFont),
+        ),
+
+
         Container(
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
