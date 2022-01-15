@@ -1,5 +1,7 @@
 package com.put.mguide.service.impl;
 
-public class ExhibitServiceImpl {
+import com.put.mguide.service.ExhibitService;
+
+public class ExhibitServiceImpl implements ExhibitService{
 
 }
