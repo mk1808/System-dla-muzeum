@@ -10,5 +10,6 @@ import com.put.mguide.model.Point;
 public interface PointService {
 
 	Point create(Point newPoint);
+	Point update(Point newPoint);
 	List<Point> getAll();
 }

@@ -1,23 +1,25 @@
 package com.put.mguide.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.put.mguide.model.Exhibit;
+import com.put.mguide.other.Message;
 
 @Service
 public interface ExhibitService {
 
-	String getFIlteredList(Long pageNo, String name);
+	List<Exhibit> getFilteredList(Long pageNo, String name);
 
+	Message delete(Long id);
 
-	String delete(Long id);
+	Exhibit create(Exhibit exhibit);
 
-	String create(Exhibit exhibit);
+	Exhibit getSingle(Long id);
 
-	String getSingle();
+	Exhibit update(Exhibit exhibit);
 
-	String update();
-
-	String getFIlteredListWithType(Long pageNo, String name, Boolean disconnected, String connected);
+	List<Exhibit> getFIlteredListWithType(Long pageNo, String name, Boolean disconnected, String connected);
 
 }
