@@ -11,8 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Login {
-	private String mail;
-	private String password;
+public class Message {
+	private String content;
 
 }

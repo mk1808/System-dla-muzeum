@@ -16,14 +16,11 @@ import com.put.mguide.service.AppUserService;
 public class AppUserController {
 	private final AppUserService appUserService;
 	
-	
 	@Autowired
 	public AppUserController(AppUserService appUserService) {
 		super();
 		this.appUserService = appUserService;
 	}
-
-
 
 	@PostMapping("/login")
 	ResponseEntity<AppUser> login(@RequestBody Login login) {

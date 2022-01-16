@@ -1,17 +1,21 @@
 package com.put.mguide.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.put.mguide.model.Exhibit;
+import com.put.mguide.other.Message;
 import com.put.mguide.service.ExhibitService;
 
 @RestController
@@ -28,39 +32,39 @@ public class ExhibitController {
 	
 	
 	@GetMapping
-	ResponseEntity<String> getFIlteredList(@RequestParam Long pageNo, @RequestParam String name ) {
+	ResponseEntity<List<Exhibit>> getFIlteredList(@RequestParam Long pageNo, @RequestParam String name ) {
 
-		return ResponseEntity.ok(exhibitService.getFIlteredList(pageNo, name));
+		return ResponseEntity.ok(exhibitService.getFilteredList(pageNo, name));
 	}
 	
-	@GetMapping
-	ResponseEntity<String> getFIlteredListType(@RequestParam Long pageNo, @RequestParam String name, @RequestParam Boolean disconnected, @RequestParam String connected) {
+	@GetMapping("/withConnections")
+	ResponseEntity<List<Exhibit>> getFIlteredListType(@RequestParam Long pageNo, @RequestParam String name, @RequestParam Boolean disconnected, @RequestParam String connected) {
 
 		return ResponseEntity.ok(exhibitService.getFIlteredListWithType(pageNo, name, disconnected,connected ));
 	}
 	
 	@DeleteMapping("/{id}")
-	ResponseEntity<String> delete (@PathVariable Long id ) {
+	ResponseEntity<Message> delete (@PathVariable Long id ) {
 
 		return ResponseEntity.ok(exhibitService.delete(id));
 	}
 	
 	@PostMapping
-	ResponseEntity<String> create(@RequestBody Exhibit exhibit) {
+	ResponseEntity<Exhibit> create(@RequestBody Exhibit exhibit) {
 
 		return ResponseEntity.ok(exhibitService.create(exhibit));
 	}
 	
 	@GetMapping("/{id}")
-	ResponseEntity<String> getSingle( @RequestParam String id ) {
+	ResponseEntity<Exhibit> getSingle( @RequestParam Long id ) {
 
-		return ResponseEntity.ok(exhibitService.getSingle());
+		return ResponseEntity.ok(exhibitService.getSingle(id));
 	}
 	
-	@PostMapping
-	ResponseEntity<String> update(@RequestBody Exhibit exhibit) {
+	@PutMapping
+	ResponseEntity<Exhibit> update(@RequestBody Exhibit exhibit) {
 
-		return ResponseEntity.ok(exhibitService.update());
+		return ResponseEntity.ok(exhibitService.update(exhibit));
 	}
 	
 }
