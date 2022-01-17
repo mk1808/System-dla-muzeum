@@ -32,8 +32,11 @@ public class ExhibitServiceImpl implements ExhibitService{
 	}
 
 	public Exhibit create(Exhibit exhibit) {
-		Room room = roomRepository.getById(exhibit.getRoom().getId());
-		exhibit.setRoom(room);
+		if (exhibit.getRoom()!=null) {
+			Room room = roomRepository.getById(exhibit.getRoom().getId());
+			exhibit.setRoom(room);
+		}
+		
 		return exhibitRepository.save(exhibit);
 	}
 

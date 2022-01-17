@@ -56,9 +56,10 @@ public class ExhibitController {
 	}
 	
 	@GetMapping("/{id}")
-	ResponseEntity<Exhibit> getSingle( @RequestParam Long id ) {
+	ResponseEntity<Exhibit> getSingle( @PathVariable Long id ) {
 
-		return ResponseEntity.ok(exhibitService.getSingle(id));
+		return ResponseEntity.ok(exhibitService.getSingle(id)); 
+				//ResponseEntity.ok(exhibitService.getSingle(id).getId());
 	}
 	
 	@PutMapping
