@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ExhibitService } from 'src/app/services/exhibit.service';
 
 
 
@@ -43,9 +44,12 @@ modules = {
     ]
   };
 htmlContent="";
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private exhibitService:ExhibitService) { }
 
   ngOnInit(): void {
+    this.exhibitService.getById("1").subscribe(res=>{
+      console.log(res)
+    })
   }
   activateRTL(editor) {
     editor.format('align', 'left')
