@@ -24,4 +24,8 @@ public class RoomServiceImpl implements RoomService{
 		return roomRepository.findAll();
 	}
 
+	public Room create(Room room) {
+		return roomRepository.save(room);
+	}
+
 }

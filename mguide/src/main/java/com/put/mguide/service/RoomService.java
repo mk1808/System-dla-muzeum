@@ -11,4 +11,6 @@ public interface RoomService {
 
 	List<Room> getAll();
 
+	Room create(Room room);
+
 }
