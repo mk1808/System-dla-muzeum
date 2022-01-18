@@ -33,13 +33,7 @@ public class ExhibitServiceImpl implements ExhibitService{
 	}
 
 	public Exhibit create(Exhibit exhibit) {
-		if (exhibit.getRoom()!=null&&exhibit.getRoom().getId()!=null) {
-			Room room = roomRepository.getById(exhibit.getRoom().getId());
-			exhibit.setRoom(room);
-		}
-		else {
-			exhibit.setRoom(null);
-		}
+		exhibit=setRoom(exhibit);
 		
 		return exhibitRepository.save(exhibit);
 	}
@@ -71,7 +65,7 @@ public class ExhibitServiceImpl implements ExhibitService{
 		old.setName(exhibit.getName());
 		old.setNumber(exhibit.getNumber());
 		old.setPhoto(exhibit.getPhoto());
-		old.setRoom( roomRepository.getById(exhibit.getRoom().getId()));
+		old=setRoom(old);
 		return exhibitRepository.save(old);
 	}
 
@@ -91,6 +85,17 @@ public class ExhibitServiceImpl implements ExhibitService{
 	
 	private Boolean isEmpty(String string) {
 		return string == null || string.isEmpty() || string.trim().isEmpty();
+	}
+	
+	private Exhibit setRoom(Exhibit exhibit) {
+		if (exhibit.getRoom()!=null&&exhibit.getRoom().getId()!=null) {
+			Room room = roomRepository.getById(exhibit.getRoom().getId());
+			exhibit.setRoom(room);
+		}
+		else {
+			exhibit.setRoom(null);
+		}
+		return exhibit;
 	}
 
 }

@@ -80,7 +80,8 @@ export class SingleExhibitComponent implements OnInit {
       number: '',
       room: {}, 
       description: '',
-      photo: ''
+      photo: '',
+      id:null
     });
   }
 
@@ -93,6 +94,7 @@ export class SingleExhibitComponent implements OnInit {
       number:  this.exisitingExhibit.number,
       room: null, 
       description: this.exisitingExhibit.description,
+      id:this.exisitingExhibit.id,
       photo: ''
     });
 
@@ -105,35 +107,30 @@ export class SingleExhibitComponent implements OnInit {
     debugger;
     console.log(form)
     let exhibit:Exhibit = this.exhibitForm.value;
-    this.exhibitService.create(exhibit).subscribe(resp=>{
-      console.log(resp)
-      this.router.navigate(['/filters']);
-    })
+    if(exhibit.id){
+      this.update(exhibit)
+    }else {
+      this.create(exhibit)
+    }
     
-  }
-
-  createExhibit(){
-    let exhibit:Exhibit = {
-      id: 0,
-      name: '',
-      number: '',
-      description: '',
-      room: undefined,
-      photo: ''
-    };
-    exhibit.name = this.exhibitForm.value.name;
-    exhibit.description = this.exhibitForm.value.description;
-    exhibit.number = this.exhibitForm.value.number;
-    exhibit.room = this.exhibitForm.value.room||{};
-    exhibit.photo = this.exhibitForm.value.photo;
-    return exhibit;
-
   }
 
   onEditorChanged($event){
     console.log(this.exhibitForm.value.description)
   }
 
+  create(exhibit){
+    this.exhibitService.create(exhibit).subscribe(resp=>{
+      console.log(resp)
+      this.router.navigate(['/filters']);
+    })
+  }
+  update(exhibit){
+    this.exhibitService.update(exhibit).subscribe(resp=>{
+      console.log(resp)
+      this.router.navigate(['/filters']);
+    })
+  }
 
 }
 
