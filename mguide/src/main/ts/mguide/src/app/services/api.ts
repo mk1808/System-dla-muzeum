@@ -1,10 +1,10 @@
 export interface Exhibit {
-    id: number;
-    name: string;
-    number: string;
-    description: string;
-    room: Room|Object;
-    photo: string;
+    id?: number;
+    name?: string;
+    number?: string;
+    description?: string;
+    room?: Room|Object;
+    photo?: string;
 }
 
 export interface AppUser {

@@ -36,15 +36,40 @@
           <td>{{exhibit.number}}</td>
           <td>{{exhibit.name}}</td>
           <td>
-            <span class="icon">
+            <span class="icon" (click)="onEdit(exhibit.id)">
               <i class="far fa-edit"></i>
             </span>
-            <span class="icon">
+            <span class="icon"(click)="onDelete(exhibit)">
               <i class="far fa-trash-alt"></i>
             </span>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+<div class="modal" >
+  <div class="modal-background"></div>
+  <div class="modal-content">
+   
+  </div>
+  <button class="modal-close is-large" aria-label="close" (click)="onClose()"></button>
+</div>
+
+<div class="modal"[ngClass]="{'is-active': isOpen}">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Potwierdzenie</p>
+      <button class="delete" aria-label="close"(click)="onClose()"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... --> Czy na pewno chcesz usunąć eksponat?<br>
+    {{exhibitForDeleteDialog.name}}
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-primary" >Zatwierdź</button>
+      <button class="button"(click)="onClose()">Anuluj</button>
+    </footer>
   </div>
 </div>

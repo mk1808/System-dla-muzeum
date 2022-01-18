@@ -14,6 +14,8 @@ export class FiltersComponent implements OnInit {
   exhibits: BehaviorSubject<any[]>;
   exhibitsNew: BehaviorSubject<Exhibit[]>;
   searchFrom: FormGroup;
+  isOpen:boolean=false;
+  exhibitForDeleteDialog:Exhibit={};
   constructor(private route: ActivatedRoute, private router: Router, private exhibitService: ExhibitService) { }
 
   ngOnInit(): void {
@@ -43,6 +45,22 @@ export class FiltersComponent implements OnInit {
     this.exhibits.subscribe(res => {
       console.log(res)
     })
+  }
+
+  onEdit(id){
+    this.router.navigate(['/exhibit/'+id]);
+
+  }
+
+  onDelete(exhibitToDelete){
+    this.exhibitForDeleteDialog = exhibitToDelete;
+    console.log(exhibitToDelete);
+    this.isOpen=true;
+  }
+
+  onClose(){
+    this.isOpen=false;
+    this.exhibitForDeleteDialog={};
   }
 
 }
