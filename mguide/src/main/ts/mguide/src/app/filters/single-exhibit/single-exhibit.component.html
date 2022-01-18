@@ -21,7 +21,9 @@
     <div class="my-table">
 
 
-      <quill-editor (onEditorCreated)="activateRTL($event)" [modules]="modules"></quill-editor>
+      <quill-editor (onEditorCreated)="activateRTL($event)" (onEditorChanged)="onEditorChanged($event)" [modules]="modules"
+      formControlName="description"
+      ></quill-editor>
     </div>
 
 

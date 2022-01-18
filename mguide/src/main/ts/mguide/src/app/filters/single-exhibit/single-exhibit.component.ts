@@ -19,6 +19,7 @@ export class SingleExhibitComponent implements OnInit {
   htmlContent="";
   id;
   exisitingExhibit:Exhibit;
+  editorContent="";
   modules = {
     toolbar: [
       ['bold', 'italic', 'underline'],//, 'strike'],        
@@ -59,6 +60,7 @@ export class SingleExhibitComponent implements OnInit {
 
   onSelect(event) {
     console.log(event);
+    debugger;
     this.files.push(...event.addedFiles);
   }
   
@@ -76,7 +78,7 @@ export class SingleExhibitComponent implements OnInit {
     this.exhibitForm = this.fb.group({
       name: '',
       number: '',
-      room: '', 
+      room: {}, 
       description: '',
       photo: ''
     });
@@ -89,8 +91,8 @@ export class SingleExhibitComponent implements OnInit {
      this.exhibitForm =  this.fb.group({
       name: this.exisitingExhibit.name,
       number:  this.exisitingExhibit.number,
-      room: '', 
-      description: '',
+      room: null, 
+      description: this.exisitingExhibit.description,
       photo: ''
     });
 
@@ -102,7 +104,7 @@ export class SingleExhibitComponent implements OnInit {
   onSubmit(form){
     debugger;
     console.log(form)
-    let exhibit:Exhibit = this.createExhibit();
+    let exhibit:Exhibit = this.exhibitForm.value;
     this.exhibitService.create(exhibit).subscribe(resp=>{
       console.log(resp)
       this.router.navigate(['/filters']);
@@ -126,6 +128,10 @@ export class SingleExhibitComponent implements OnInit {
     exhibit.photo = this.exhibitForm.value.photo;
     return exhibit;
 
+  }
+
+  onEditorChanged($event){
+    console.log(this.exhibitForm.value.description)
   }
 
 
