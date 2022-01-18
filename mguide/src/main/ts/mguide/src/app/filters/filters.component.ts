@@ -20,7 +20,7 @@ export class FiltersComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.exhibitService.getExhibitsByNameAndNumber("","");
+    this.updateExhibits();
     this.exhibits = this.exhibitService.filteredExhibits;
     this.exhibits.getValue();
     this.exhibits.subscribe(res => {
@@ -61,6 +61,18 @@ export class FiltersComponent implements OnInit {
   onClose(){
     this.isOpen=false;
     this.exhibitForDeleteDialog={};
+  }
+
+  onConfirm(){
+    this.exhibitService.deleteById(this.exhibitForDeleteDialog.id).subscribe(x=>{
+      this.onClose();
+      this.updateExhibits();
+    })
+    
+  }
+
+  updateExhibits(){
+    this.exhibitService.getExhibitsByNameAndNumber("","");
   }
 
 }

@@ -33,7 +33,7 @@ export class ExhibitService {
     })
   }
 
-  deleteById(id: String): Observable<any> {
+  deleteById(id: number): Observable<any> {
     return this.restService.delete(`${URL}/${id}`);
   }
 
