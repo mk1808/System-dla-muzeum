@@ -42,11 +42,20 @@ public class ExhibitServiceImpl implements ExhibitService{
 	}
 
 
-	public List<Exhibit> getFilteredList(Long pageNo, String name) {
-		if (name==null) {
-			exhibitRepository.findAll();
+	public List<Exhibit> getFilteredList(Long pageNo, String name, String number) {
+		Boolean isNameEmpty = isEmpty(name);
+		Boolean isNumberEmpty = isEmpty(number);
+		
+		
+		if (!isNameEmpty&&!isNumberEmpty) {
+			return exhibitRepository.getByNumberAndNameContaining(number, name);	
+		}else if(!isNameEmpty) {
+			return exhibitRepository.getByNameContaining(name);
+		}else if(!isNumberEmpty) {
+			return exhibitRepository.getByNumber(number);
 		}
-		return exhibitRepository.getByNameContaining(name);
+		
+		return exhibitRepository.findAll();
 	}
 
 	public Exhibit getSingle(Long id) {
@@ -75,6 +84,10 @@ public class ExhibitServiceImpl implements ExhibitService{
 		}
 
 		return all;
+	}
+	
+	private Boolean isEmpty(String string) {
+		return string == null || string.isEmpty() || string.trim().isEmpty();
 	}
 
 }

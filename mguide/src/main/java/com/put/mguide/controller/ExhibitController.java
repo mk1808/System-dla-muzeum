@@ -32,9 +32,9 @@ public class ExhibitController {
 	
 	
 	@GetMapping
-	ResponseEntity<List<Exhibit>> getFIlteredList(@RequestParam(required = false) Long pageNo, @RequestParam(required = false) String name ) {
+	ResponseEntity<List<Exhibit>> getFIlteredList(@RequestParam(required = false) Long pageNo, @RequestParam(required = false) String name, @RequestParam(required = false) String number ) {
 
-		return ResponseEntity.ok(exhibitService.getFilteredList(pageNo, name));
+		return ResponseEntity.ok(exhibitService.getFilteredList(pageNo, name, number));
 	}
 	
 	@GetMapping("/withConnections")

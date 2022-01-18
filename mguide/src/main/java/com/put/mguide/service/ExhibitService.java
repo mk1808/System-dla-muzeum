@@ -10,7 +10,7 @@ import com.put.mguide.other.Message;
 @Service
 public interface ExhibitService {
 
-	List<Exhibit> getFilteredList(Long pageNo, String name);
+	List<Exhibit> getFilteredList(Long pageNo, String name, String number);
 
 	Message delete(Long id);
 
