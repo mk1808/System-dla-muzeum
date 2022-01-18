@@ -32,13 +32,13 @@
         [removable]="true" (removed)="onRemove(f)">
       </ngx-dropzone-image-preview>
     </ngx-dropzone>
-  </form>
+
 
   <div class="fields parent1">
     <button class="button " (click)="onCancelClick()"> <span>Anuluj</span></button>
 
-    <button class="button is-primary" (click)="onSaveClick()"> <span>Zapisz</span></button>
+    <button type="submit" class="button is-primary"> <span>Zapisz</span></button>
 
   </div>
-
+  </form>
 </div>

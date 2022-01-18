@@ -3,7 +3,7 @@ export interface Exhibit {
     name: string;
     number: string;
     description: string;
-    room: Room;
+    room: Room|Object;
     photo: string;
 }
 

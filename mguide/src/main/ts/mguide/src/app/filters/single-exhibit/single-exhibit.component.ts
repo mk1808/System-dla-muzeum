@@ -54,7 +54,7 @@ export class SingleExhibitComponent implements OnInit {
     this.router.navigate(['/filters']);
   }
   onSaveClick(){
-    this.router.navigate(['/filters']);
+    
   }
 
   onSelect(event) {
@@ -100,12 +100,32 @@ export class SingleExhibitComponent implements OnInit {
   }
 
   onSubmit(form){
+    debugger;
     console.log(form)
-    let exhibit:Exhibit;
+    let exhibit:Exhibit = this.createExhibit();
     this.exhibitService.create(exhibit).subscribe(resp=>{
-
+      console.log(resp)
+      this.router.navigate(['/filters']);
     })
     
+  }
+
+  createExhibit(){
+    let exhibit:Exhibit = {
+      id: 0,
+      name: '',
+      number: '',
+      description: '',
+      room: undefined,
+      photo: ''
+    };
+    exhibit.name = this.exhibitForm.value.name;
+    exhibit.description = this.exhibitForm.value.description;
+    exhibit.number = this.exhibitForm.value.number;
+    exhibit.room = this.exhibitForm.value.room||{};
+    exhibit.photo = this.exhibitForm.value.photo;
+    return exhibit;
+
   }
 
 
