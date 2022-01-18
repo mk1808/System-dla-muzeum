@@ -26,9 +26,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let exhibit of exhibits|async">
+      <tr *ngFor="let exhibit of exhibitsNew|async">
         <td>1 </td>
-        <td>Obraz "Bitwa pod Grunwaldem" - Jan Matejko</td>
+        <td>{{exhibit.name}}</td>
         <td>
           <span class="icon">
             <i class="far fa-edit"></i>

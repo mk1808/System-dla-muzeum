@@ -14,7 +14,8 @@ import { PointService } from 'src/app/services/point.service';
 export class SingleExhibitComponent implements OnInit {
 
   files: File[] = [];
-
+  htmlContent="";
+  id;
   modules = {
     toolbar: [
       ['bold', 'italic', 'underline'],//, 'strike'],        
@@ -29,12 +30,14 @@ export class SingleExhibitComponent implements OnInit {
       ['link', 'image', 'video']
     ]
   };
-htmlContent="";
+
   constructor(private route: ActivatedRoute, private router: Router, private exhibitService:ExhibitService,
     private dictionaryService:DictionaryService, private pointService:PointService) { }
 
   ngOnInit(): void {
-    this.exhibitService.getById("1").subscribe(res=>{
+    
+  this.getExhibitId();
+    this.exhibitService.getById(this.id).subscribe(res=>{
       console.log(res)
     })
   }
@@ -59,6 +62,12 @@ htmlContent="";
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
+
+  getExhibitId() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id)
+  }
+
 
 }
 

@@ -8,7 +8,7 @@ import { SingleExhibitComponent } from './filters/single-exhibit/single-exhibit.
 const routes: Routes = [
   { path: '', redirectTo: '/filters', pathMatch: 'full' },
   { path: 'filters', component: FiltersComponent },
-  { path: 'exhibit', component: SingleExhibitComponent },
+  { path: 'exhibit/:id', component: SingleExhibitComponent },
   { path: 'login', component: AuthComponent },
   
   { path: '**', redirectTo: '/filters' }
