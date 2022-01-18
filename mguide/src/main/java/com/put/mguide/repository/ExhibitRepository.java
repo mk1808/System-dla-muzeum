@@ -16,5 +16,7 @@ public interface ExhibitRepository extends JpaRepository<Exhibit, Long>{
 	
 	
 	List<Exhibit> getByNameAndConnected(String name, Boolean connected);
+	List<Exhibit> getByNumberContaining(String number);
+	List<Exhibit> getByNumberContainingAndNameContaining(String number, String name);
 
 }

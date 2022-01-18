@@ -48,11 +48,11 @@ public class ExhibitServiceImpl implements ExhibitService{
 		
 		
 		if (!isNameEmpty&&!isNumberEmpty) {
-			return exhibitRepository.getByNumberAndNameContaining(number, name);	
+			return exhibitRepository.getByNumberContainingAndNameContaining(number, name);	
 		}else if(!isNameEmpty) {
 			return exhibitRepository.getByNameContaining(name);
 		}else if(!isNumberEmpty) {
-			return exhibitRepository.getByNumber(number);
+			return exhibitRepository.getByNumberContaining(number);
 		}
 		
 		return exhibitRepository.findAll();
