@@ -46,7 +46,7 @@ export class ExhibitService {
   }
 
   getExhibits() {
-    this.restService.get(`${URL}/2`).subscribe(resp => {
+    this.restService.get(`${URL}/5`).subscribe(resp => {
       this.exhibits.next([resp]);
     })
   }
