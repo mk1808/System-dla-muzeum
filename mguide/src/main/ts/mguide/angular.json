@@ -23,7 +23,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "buildOptimizer":true,
+            "optimization": false,
+            "sourceMap": true,
+            "namedChunks": true,
+            "extractLicenses": false,
+            "vendorChunk": false,
+            "buildOptimizer": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -70,6 +75,7 @@
           "options": {
             "browserTarget": "mguide:build",
             "proxyConfig": "src/proxy.conf.json"
+            
           },
           "configurations": {
             "production": {
