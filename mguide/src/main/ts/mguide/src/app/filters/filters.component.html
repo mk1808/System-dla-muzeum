@@ -22,7 +22,9 @@
     <table class='table is-bordered'>
       <thead>
         <tr>
-          <th class="col-num">Numer</th>
+          <th class="is-narrow">Lp.  
+            <th class="col-num">Numer</th>
+
           <th class="wider">Nazwa eksponatu</th>
           <th class="col-action">Akcja</th>
 
@@ -31,6 +33,7 @@
       <tbody>
         <tr *ngFor="let exhibit of exhibits|async; let i = index">
           <td>{{i+1}} </td>
+          <td>{{exhibit.number}}</td>
           <td>{{exhibit.name}}</td>
           <td>
             <span class="icon">
