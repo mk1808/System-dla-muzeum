@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Exhibit } from 'src/app/services/api';
 import { DictionaryService } from 'src/app/services/dictionary.service';
 import { ExhibitService } from 'src/app/services/exhibit.service';
 import { PointService } from 'src/app/services/point.service';
@@ -16,6 +18,7 @@ export class SingleExhibitComponent implements OnInit {
   files: File[] = [];
   htmlContent="";
   id;
+  exisitingExhibit:Exhibit;
   modules = {
     toolbar: [
       ['bold', 'italic', 'underline'],//, 'strike'],        
@@ -32,14 +35,15 @@ export class SingleExhibitComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute, private router: Router, private exhibitService:ExhibitService,
-    private dictionaryService:DictionaryService, private pointService:PointService) { }
-
+    private dictionaryService:DictionaryService, private pointService:PointService, private fb:FormBuilder) { }
+    exhibitForm: FormGroup;
   ngOnInit(): void {
-    
-  this.getExhibitId();
-    this.exhibitService.getById(this.id).subscribe(res=>{
-      console.log(res)
-    })
+    debugger;
+    this.initEmptyForm()
+    this.getExhibitId();
+    if (this.id) {
+      this.initFormWithExisitingValues();
+    }
   }
   activateRTL(editor) {
     editor.format('align', 'left')
@@ -66,6 +70,42 @@ export class SingleExhibitComponent implements OnInit {
   getExhibitId() {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id)
+  }
+
+  initEmptyForm(){
+    this.exhibitForm = this.fb.group({
+      name: '',
+      number: '',
+      room: '', 
+      description: '',
+      photo: ''
+    });
+  }
+
+  initFormWithExisitingValues(){
+    this.exhibitService.getById(this.id).subscribe(res=>{
+      console.log(res)
+      this.exisitingExhibit = res;
+     this.exhibitForm =  this.fb.group({
+      name: this.exisitingExhibit.name,
+      number:  this.exisitingExhibit.number,
+      room: '', 
+      description: '',
+      photo: ''
+    });
+
+    })
+
+    
+  }
+
+  onSubmit(form){
+    console.log(form)
+    let exhibit:Exhibit;
+    this.exhibitService.create(exhibit).subscribe(resp=>{
+
+    })
+    
   }
 
 

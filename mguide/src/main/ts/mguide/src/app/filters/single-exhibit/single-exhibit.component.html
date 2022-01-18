@@ -1,38 +1,38 @@
 <div class="background-style full-height">
   <h1 class="title">Dodawanie nowego eksponatu</h1>
   <hr />
-
-  <div class="fields parent">
-    <div class="field">
-      <label class="label align">Nazwa eksponatu</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Nazwa">
+  <form [formGroup]="exhibitForm" (ngSubmit)="onSubmit(exhibitForm)">
+    <div class="fields parent">
+      <div class="field">
+        <label class="label align">Nazwa eksponatu</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Nazwa" formControlName="name">
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label align">Numer eksponatu</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Numer">
+      <div class="field">
+        <label class="label align">Numer eksponatu</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Numer" formControlName="number">
+        </div>
       </div>
+
+    </div>
+    <label class="label align text-editor">Treść</label>
+    <div class="my-table">
+
+
+      <quill-editor (onEditorCreated)="activateRTL($event)" [modules]="modules"></quill-editor>
     </div>
 
-  </div>
-  <label class="label align text-editor">Treść</label>
-  <div class="my-table">
 
-
-    <quill-editor (onEditorCreated)="activateRTL($event)" [modules]="modules"></quill-editor>
-  </div>
-
-
-  <label class="label text-editor align">Zdjęcie</label>
-  <ngx-dropzone class="my-photo-upload" (change)="onSelect($event)">
-    <ngx-dropzone-label>Załaduj zdjęcie</ngx-dropzone-label>
-    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true"
-      (removed)="onRemove(f)">
-    </ngx-dropzone-image-preview>
-  </ngx-dropzone>
-
+    <label class="label text-editor align">Zdjęcie</label>
+    <ngx-dropzone class="my-photo-upload" (change)="onSelect($event)">
+      <ngx-dropzone-label>Załaduj zdjęcie</ngx-dropzone-label>
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+        [removable]="true" (removed)="onRemove(f)">
+      </ngx-dropzone-image-preview>
+    </ngx-dropzone>
+  </form>
 
   <div class="fields parent1">
     <button class="button " (click)="onCancelClick()"> <span>Anuluj</span></button>

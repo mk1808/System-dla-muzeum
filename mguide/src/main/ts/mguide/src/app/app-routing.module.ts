@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/filters', pathMatch: 'full' },
   { path: 'filters', component: FiltersComponent },
   { path: 'exhibit/:id', component: SingleExhibitComponent },
+  { path: 'exhibit', component: SingleExhibitComponent },
   { path: 'login', component: AuthComponent },
   
   { path: '**', redirectTo: '/filters' }
