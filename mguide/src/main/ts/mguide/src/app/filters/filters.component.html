@@ -1,21 +1,23 @@
 <div class="background-style full-height">
   <h1 class="title">Lista eksponatów</h1>
   <hr />
-  <div class="fields parent">
-    <div class="field">
-      <label class="label align">Nazwa</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Nazwa">
+  <form [formGroup]="searchFrom" (ngSubmit)="onSubmit(searchFrom)">
+    <div class="fields parent">
+      <div class="field">
+        <label class="label align">Nazwa</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Nazwa" formControlName="name">
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label align">Numer</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Numer">
+      <div class="field">
+        <label class="label align">Numer</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Numer" formControlName="number">
+        </div>
       </div>
+      <button type="submit" class="button is-primary"> <i class="fas fa-search"></i><span>Wyszukaj</span></button>
     </div>
-    <button class="button is-primary"> <i class="fas fa-search"></i><span>Wyszukaj</span></button>
-  </div>
+  </form>
   <div class="my-table">
     <table class='table is-bordered'>
       <thead>
