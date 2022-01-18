@@ -1,5 +1,7 @@
 <div class="background-style full-height">
-  <h1 class="title">Dodawanie nowego eksponatu</h1><hr/>
+  <h1 class="title">Dodawanie nowego eksponatu</h1>
+  <hr />
+
   <div class="fields parent">
     <div class="field">
       <label class="label align">Nazwa eksponatu</label>
@@ -15,26 +17,27 @@
     </div>
 
   </div>
-   <label class="label align text-editor">Treść</label>
+  <label class="label align text-editor">Treść</label>
   <div class="my-table">
- 
+
 
     <quill-editor (onEditorCreated)="activateRTL($event)" [modules]="modules"></quill-editor>
   </div>
 
 
-     <label class="label text-editor align">Zdjęcie</label>
-  <ngx-dropzone class="my-photo-upload"(change)="onSelect($event)">
+  <label class="label text-editor align">Zdjęcie</label>
+  <ngx-dropzone class="my-photo-upload" (change)="onSelect($event)">
     <ngx-dropzone-label>Załaduj zdjęcie</ngx-dropzone-label>
-    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true"
+      (removed)="onRemove(f)">
     </ngx-dropzone-image-preview>
   </ngx-dropzone>
 
 
   <div class="fields parent1">
-     <button class="button " (click)="onCancelClick()"> <span>Anuluj</span></button>
-    
-     <button class="button is-primary" (click)="onSaveClick()"> <span>Zapisz</span></button>
+    <button class="button " (click)="onCancelClick()"> <span>Anuluj</span></button>
+
+    <button class="button is-primary" (click)="onSaveClick()"> <span>Zapisz</span></button>
 
   </div>
 
