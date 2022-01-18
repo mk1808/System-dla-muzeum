@@ -18,17 +18,13 @@ export class FiltersComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.exhibitService.getExhibits();
-    this.exhibits = this.exhibitService.exhibits;
+    this.exhibitService.getExhibitsByNameAndNumber("","");
+    this.exhibits = this.exhibitService.filteredExhibits;
     this.exhibits.getValue();
     this.exhibits.subscribe(res => {
     })
 
-    this.exhibitService.getExhibitsByName("");
-    this.exhibitsNew = this.exhibitService.filteredExhibits;
-    this.exhibitsNew.subscribe(res => {
-      console.log(res)
-    })
+  
 
 
   }
@@ -42,6 +38,11 @@ export class FiltersComponent implements OnInit {
 
   onSubmit(form){
     console.log(form)
+    this.exhibitService.getExhibitsByNameAndNumber(form.value.name,form.value.number);
+    this.exhibits = this.exhibitService.filteredExhibits;
+    this.exhibits.subscribe(res => {
+      console.log(res)
+    })
   }
 
 }

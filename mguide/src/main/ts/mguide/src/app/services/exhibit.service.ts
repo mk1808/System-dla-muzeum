@@ -19,9 +19,9 @@ export class ExhibitService {
     return this.restService.get(`${URL}/${id}`);
   }
 
-  getExhibitsByName(name: String) {
+  getExhibitsByNameAndNumber(name: String, number:String) {
     let empty: String = "";
-    this.restService.get(`${URL}?name=${name || empty}`).subscribe(resp => {
+    this.restService.get(`${URL}?name=${name || empty}&number=${number || empty}`).subscribe(resp => {
       this.filteredExhibits.next(resp);
     })
   }

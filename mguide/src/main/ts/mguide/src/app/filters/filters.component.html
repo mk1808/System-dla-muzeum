@@ -29,8 +29,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let exhibit of exhibitsNew|async">
-          <td>1 </td>
+        <tr *ngFor="let exhibit of exhibits|async; let i = index">
+          <td>{{i+1}} </td>
           <td>{{exhibit.name}}</td>
           <td>
             <span class="icon">
