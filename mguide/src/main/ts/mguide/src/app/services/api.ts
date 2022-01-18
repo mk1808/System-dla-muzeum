@@ -26,3 +26,8 @@ export interface Point {
     y: number;
     z: number;
 }
+
+export interface Login {
+    mail: string;
+    password: string;
+}
