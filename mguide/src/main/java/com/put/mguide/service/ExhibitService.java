@@ -20,6 +20,6 @@ public interface ExhibitService {
 
 	Exhibit update(Exhibit exhibit);
 
-	List<Exhibit> getFIlteredListWithType(Long pageNo, String name, Boolean disconnected, String connected);
+	List<Exhibit> getFIlteredListWithType(Long pageNo, String name, Boolean disconnected, Boolean connected);
 
 }

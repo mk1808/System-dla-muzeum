@@ -1,5 +1,6 @@
 package com.put.mguide.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -35,4 +36,6 @@ public class Exhibit{
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Room room;
 	private String photo;
+	@Column(columnDefinition="boolean default false")
+	private Boolean connected = false;
 }

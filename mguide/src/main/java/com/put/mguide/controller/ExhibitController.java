@@ -32,13 +32,13 @@ public class ExhibitController {
 	
 	
 	@GetMapping
-	ResponseEntity<List<Exhibit>> getFIlteredList(@RequestParam Long pageNo, @RequestParam String name ) {
+	ResponseEntity<List<Exhibit>> getFIlteredList(@RequestParam(required = false) Long pageNo, @RequestParam(required = false) String name ) {
 
 		return ResponseEntity.ok(exhibitService.getFilteredList(pageNo, name));
 	}
 	
 	@GetMapping("/withConnections")
-	ResponseEntity<List<Exhibit>> getFIlteredListType(@RequestParam Long pageNo, @RequestParam String name, @RequestParam Boolean disconnected, @RequestParam String connected) {
+	ResponseEntity<List<Exhibit>> getFIlteredListType(@RequestParam Long pageNo, @RequestParam String name, @RequestParam Boolean disconnected, @RequestParam Boolean connected) {
 
 		return ResponseEntity.ok(exhibitService.getFIlteredListWithType(pageNo, name, disconnected,connected ));
 	}

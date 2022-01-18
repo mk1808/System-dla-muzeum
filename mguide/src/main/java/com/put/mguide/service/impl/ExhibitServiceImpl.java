@@ -1,5 +1,6 @@
 package com.put.mguide.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,10 @@ public class ExhibitServiceImpl implements ExhibitService{
 
 
 	public List<Exhibit> getFilteredList(Long pageNo, String name) {
-		return exhibitRepository.getByName(name);
+		if (name==null) {
+			exhibitRepository.findAll();
+		}
+		return exhibitRepository.getByNameContaining(name);
 	}
 
 	public Exhibit getSingle(Long id) {
@@ -59,9 +63,18 @@ public class ExhibitServiceImpl implements ExhibitService{
 		return exhibitRepository.save(old);
 	}
 
-	public List<Exhibit> getFIlteredListWithType(Long pageNo, String name, Boolean disconnected, String connected) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Exhibit> getFIlteredListWithType(Long pageNo, String name, Boolean disconnected, Boolean connected) {
+
+		List<Exhibit> all = new ArrayList<Exhibit>();
+		if (connected && disconnected) {
+			all.addAll(exhibitRepository.getByName(name));
+		} else if (connected) {
+			all.addAll(exhibitRepository.getByNameAndConnected(name, true));
+		} else if (disconnected) {
+			all.addAll(exhibitRepository.getByNameAndConnected(name, false));
+		}
+
+		return all;
 	}
 
 }

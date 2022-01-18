@@ -10,5 +10,7 @@ import com.put.mguide.model.Exhibit;
 @Repository
 public interface ExhibitRepository extends JpaRepository<Exhibit, Long>{
 	List<Exhibit> getByName(String name);
+	List<Exhibit> getByNameContaining(String name);
+	List<Exhibit> getByNameAndConnected(String name, Boolean connected);
 
 }

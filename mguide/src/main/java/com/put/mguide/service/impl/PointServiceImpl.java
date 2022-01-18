@@ -27,6 +27,8 @@ public class PointServiceImpl implements PointService{
 	
 	public Point create(Point newPoint) {
 		Exhibit exhibit = exhibitRepository.getById(newPoint.getExhibit().getId());
+		exhibit.setConnected(true);
+		exhibitRepository.save(exhibit);
 		newPoint.setExhibit(exhibit);
 		return pointRepository.save(newPoint);
 	}
