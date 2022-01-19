@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
+import 'package:mguide/models/models.dart';
 import 'package:mguide/myAppBar.dart';
+import 'package:mguide/services/exhibitsService.dart';
 import 'package:mguide/successMapping.dart';
+import 'package:provider/provider.dart';
 
 class ChooseExhibitForMapping extends StatefulWidget {
   const ChooseExhibitForMapping({Key? key}) : super(key: key);
@@ -91,7 +94,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
               color: Colors.white,
               margin: EdgeInsets.only(left: 8, right: 8),
               //height: 500,
-              child: getTable())
+              child: getTable2())
         ]);
   }
 
@@ -213,6 +216,45 @@ onTapOk(){
 
       ],
     );
+  }
+getTable2() {
+    return Consumer<ExhibitsService>(
+        builder: (context, exhibitsService, child) {
+      return DataTable(
+          showCheckboxColumn: false,
+          columns: [
+            DataColumn(
+                label: Text('Numer',
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+            DataColumn(
+                label: Text('Nazwa eksponatu',
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+            /*DataColumn(
+            label: Text('Profession',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('Profession1',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),*/
+          ],
+          rows: List<DataRow>.generate(
+            exhibitsService.items.length,
+            (int index) => getDataRow(exhibitsService.items[index])
+          ));
+    });
+  }
+  
+  getDataRow(Exhibit exhibit){
+    return DataRow(
+              cells: [
+                DataCell(Text("2"+exhibit.id.toString())),
+                DataCell(Text(exhibit.name)),
+              ],
+              onSelectChanged: (newValue) {
+                return getDialog();
+              },
+            );
   }
 
   getDialog(){

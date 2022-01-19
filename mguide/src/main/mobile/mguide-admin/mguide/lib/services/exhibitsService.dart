@@ -27,8 +27,10 @@ class ExhibitsService extends ChangeNotifier {
     
   }
 
-  void onSuccess(List<dynamic> map){
-    print(map);
+  void onSuccess(List<dynamic> list) {
+    print(list[0]['id']);
+    list.forEach((element) => _exhibits.add(Exhibit.fromJson(element)));
+    print(list);
     notifyListeners();
   }
 }
