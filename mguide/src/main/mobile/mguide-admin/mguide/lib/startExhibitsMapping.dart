@@ -154,7 +154,7 @@ return TextFormField(
         onPressed: () {
               print('inWidget');
                 var exhibitsService = Provider.of<ExhibitsService>(context, listen: false);
-                exhibitsService.getAll();
+                exhibitsService.getAll("");
 
           print('Pressed');
           Navigator.push(context,

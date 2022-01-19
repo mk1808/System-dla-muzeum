@@ -108,8 +108,14 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
           return 'Please enter some text';
         }
         return null;
-      },
+      },onChanged: onInputChanged,
     );
+  }
+
+  onInputChanged(text){
+    var exhibitsService = Provider.of<ExhibitsService>(context, listen: false);
+    exhibitsService.getAll(text);
+
   }
 onTapOk(){
    Navigator.push(context,

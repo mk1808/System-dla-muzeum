@@ -6,6 +6,7 @@ import 'package:mguide/services/restService.dart';
 
 class ExhibitsService extends ChangeNotifier {
   final List<Exhibit> _exhibits = [];
+  
 
   UnmodifiableListView<Exhibit> get items => UnmodifiableListView(_exhibits);
 
@@ -19,16 +20,17 @@ class ExhibitsService extends ChangeNotifier {
     notifyListeners();
   }
 
-    void getAll() {
+    void getAll(text) {
       print('in exhibit service');
     RestService rest = RestService();
-    rest.get<List<dynamic>>(path: "api/exhibits", onSuccess: onSuccess);
+    rest.get<List<dynamic>>(path: "api/exhibits?name=${text}", onSuccess: onSuccess);
 
     
   }
 
   void onSuccess(List<dynamic> list) {
     print(list[0]['id']);
+    _exhibits.clear();
     list.forEach((element) => _exhibits.add(Exhibit.fromJson(element)));
     print(list);
     notifyListeners();
