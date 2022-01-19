@@ -51,21 +51,22 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
                           const EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 20.0),
                       //height: 1500.0,
                       child: getInput()),
-                       Container(
+                  Container(
                       padding:
                           const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 20.0),
                       height: 600.0,
                       child: getTableWithScroll()),
-                          Container(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-              child: SizedBox(width: 300, height: 50, child: getButton2())),
+                  Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 20.0, horizontal: 20.0),
+                      child: SizedBox(
+                          width: 300, height: 50, child: getButton2())),
                 ],
               )),
         ]);
   }
 
-      getButton2() {
+  getButton2() {
     return ElevatedButton.icon(
         label: Text('Zakończ'),
         icon: Icon(
@@ -75,13 +76,12 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
         ),
         onPressed: () {
           print('Pressed');
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => MainPage()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => MainPage()));
         },
         style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.grey)
-        ));
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.grey)));
   }
 
   getTableWithScroll() {
@@ -94,7 +94,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
               color: Colors.white,
               margin: EdgeInsets.only(left: 8, right: 8),
               //height: 500,
-              child: getTable2())
+              child: getTable())
         ]);
   }
 
@@ -108,122 +108,22 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
           return 'Please enter some text';
         }
         return null;
-      },onChanged: onInputChanged,
+      },
+      onChanged: onInputChanged,
     );
   }
 
-  onInputChanged(text){
+  onInputChanged(text) {
     var exhibitsService = Provider.of<ExhibitsService>(context, listen: false);
     exhibitsService.getAll(text);
-
   }
-onTapOk(){
-   Navigator.push(context,
-              MaterialPageRoute(builder: (context) => SuccessMapping()));
-}
+
+  onTapOk() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SuccessMapping()));
+  }
+
   getTable() {
-    return DataTable(
-      showCheckboxColumn: false,
-      columns: [
-        DataColumn(
-            label: Text('Numer',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
-        DataColumn(
-            label: Text('Nazwa eksponatu',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
-        /*DataColumn(
-            label: Text('Profession',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
-        DataColumn(
-            label: Text('Profession1',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),*/
-      ],
-      rows: [
-        DataRow(cells: [
-          DataCell(Text('1')),
-          DataCell(Text('Obraz "Bitwa pod Grunwaldem" - Jan Matejko')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('2')),
-          DataCell(Text('Obraz "Babie lato" – Józef Chełmoński')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('3')),
-          DataCell(Text('Obraz "Bociany" – Józef Chełmoński')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('4')),
-          DataCell(Text('Obraz "Dirce chrześcijańska" – Henryk Siemiradzki')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('5')),
-          DataCell(Text('Obraz "Dziwny ogród" – Józef Mehoffer')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('6')),
-          DataCell(Text('Obraz "Stańczyk" - Jan Matejko')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('7')),
-          DataCell(Text('Obraz "Błędne koło" - Jacek Malczewski')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('8')),
-          DataCell(Text('Obraz "AD84" - Zdzisław Beksiński')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('9')),
-          DataCell(Text('Obraz "Dziewczynka z chryzantemami" - Olga Boznańska')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-        DataRow(cells: [
-          DataCell(Text('10')),
-          DataCell(Text('Obraz "Dwie Głowy" - Witkacy')),
-        ],
-        onSelectChanged: (newValue) {
-               return getDialog();  
-            },
-        ),
-
-      ],
-    );
-  }
-getTable2() {
     return Consumer<ExhibitsService>(
         builder: (context, exhibitsService, child) {
       return DataTable(
@@ -244,42 +144,40 @@ getTable2() {
             label: Text('Profession1',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),*/
           ],
-          rows: List<DataRow>.generate(
-            exhibitsService.items.length,
-            (int index) => getDataRow(exhibitsService.items[index])
-          ));
+          rows: List<DataRow>.generate(exhibitsService.items.length,
+              (int index) => getDataRow(exhibitsService.items[index])));
     });
   }
-  
-  getDataRow(Exhibit exhibit){
+
+  getDataRow(Exhibit exhibit) {
     return DataRow(
-              cells: [
-                DataCell(Text("2"+exhibit.id.toString())),
-                DataCell(Text(exhibit.name)),
-              ],
-              onSelectChanged: (newValue) {
-                return getDialog();
-              },
-            );
+      cells: [
+        DataCell(Text(exhibit.id.toString())),
+        DataCell(Text(exhibit.name)),
+      ],
+      onSelectChanged: (newValue) {
+        return getDialog();
+      },
+    );
   }
 
-  getDialog(){
-    return  showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: const Text('Mapowanie'),
-          content: const Text('Czy powiązać obecne miejsce z obiektem?'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'Cancel'),
-              child: const Text('Wróć'),
-            ),
-            TextButton(
-              onPressed: () => {onTapOk()},
-              child: const Text('OK'),
-            ),
-          ],
-        ),
-      );
+  getDialog() {
+    return showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Mapowanie'),
+        content: const Text('Czy powiązać obecne miejsce z obiektem?'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'Cancel'),
+            child: const Text('Wróć'),
+          ),
+          TextButton(
+            onPressed: () => {onTapOk()},
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
   }
 }
