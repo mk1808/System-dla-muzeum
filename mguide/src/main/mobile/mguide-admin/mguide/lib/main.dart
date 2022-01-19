@@ -6,6 +6,7 @@ import 'package:mguide/exhibitsList.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/randomWords.dart';
 import 'package:mguide/services/exhibitsService.dart';
+import 'package:mguide/services/pointService.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (context) => ExhibitsService()),
+            ChangeNotifierProvider(create: (context) => PointService()),
           ],
           child:MaterialApp(
         title: 'mGuide Admin',

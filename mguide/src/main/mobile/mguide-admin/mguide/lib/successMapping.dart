@@ -3,7 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
 import 'package:mguide/myAppBar.dart';
+import 'package:mguide/services/pointService.dart';
 import 'package:mguide/startExhibitsMapping.dart';
+import 'package:provider/provider.dart';
 
 class SuccessMapping extends StatefulWidget {
   const SuccessMapping({ Key? key }) : super(key: key);
@@ -50,8 +52,10 @@ class _SuccessMappingState extends State<SuccessMapping> {
           padding: const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 20.0),
           height: 160.0,
           // color: Colors.yellow,
-          child: Text('Lokalizacja obiektu została poprawnie zapisana!',
-              textAlign: TextAlign.center, style: _biggerFont2),
+          child:   Consumer<PointService>(
+        builder: (context, pointService, child) {
+          return Text('Lokalizacja obiektu: ${pointService.item?.exhibit?.name} została poprawnie zapisana!', textAlign: TextAlign.center, style: _biggerFont2); })
+            
         ),
        /* Container(
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),

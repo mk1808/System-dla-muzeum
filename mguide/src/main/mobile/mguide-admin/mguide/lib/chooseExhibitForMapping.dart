@@ -5,6 +5,7 @@ import 'package:mguide/menu.dart';
 import 'package:mguide/models/models.dart';
 import 'package:mguide/myAppBar.dart';
 import 'package:mguide/services/exhibitsService.dart';
+import 'package:mguide/services/pointService.dart';
 import 'package:mguide/successMapping.dart';
 import 'package:provider/provider.dart';
 
@@ -118,7 +119,10 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
     exhibitsService.getAll(text);
   }
 
-  onTapOk() {
+  onTapOk(exhibit) {
+    var pointService = Provider.of<PointService>(context, listen: false);
+    Point point = new Point(null, exhibit, 1.0, 2.0, 1.2);
+    pointService.create(point);
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SuccessMapping()));
   }
@@ -156,24 +160,26 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
         DataCell(Text(exhibit.name)),
       ],
       onSelectChanged: (newValue) {
-        return getDialog();
+        return getDialog(exhibit);
       },
     );
   }
 
-  getDialog() {
+  getDialog(Exhibit exhibit) {
+    print(exhibit);
+
     return showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
         title: const Text('Mapowanie'),
-        content: const Text('Czy powiązać obecne miejsce z obiektem?'),
+        content: Text('Czy powiązać miejsce z obiektem \n ${exhibit.name}?'),
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.pop(context, 'Cancel'),
             child: const Text('Wróć'),
           ),
           TextButton(
-            onPressed: () => {onTapOk()},
+            onPressed: () => {onTapOk(exhibit)},
             child: const Text('OK'),
           ),
         ],

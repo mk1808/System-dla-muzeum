@@ -63,8 +63,8 @@ class Room {
 }
 
 class Point {
-  final int id;
-  final Exhibit exhibit;
+  final int? id;
+  final Exhibit? exhibit;
   final double x;
   final double y;
   final double z;
@@ -73,14 +73,14 @@ class Point {
 
   Point.fromJson(Map<String, dynamic> json)
       : id = json['id'],
-        exhibit = json['exhibit'],
+        exhibit = json['exhibit']!=null?Exhibit.fromJson(json['exhibit']):null,
         x = json['x'],
         y = json['y'],
         z = json['z'];
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'exhibit': exhibit,
+        'id': id!=null?id:"",
+        'exhibit': exhibit?.toJson(),
         'x': x,
         'y': y,
         'z': z,
