@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
@@ -17,8 +19,14 @@ class RestService{
   required T body,  
   void Function(T map)? onSuccess, 
   void Function(int statusCode)? onError}) async{
-    var url = Uri.http(host, path);
-    var response = await http.post(url, body: body);
+    var url = Uri.parse(host + path);
+    var response = await http.post(
+      url,
+      body: convert.jsonEncode(body),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    );
     onResponse(response, onSuccess, onError);
   }
 
@@ -26,7 +34,7 @@ class RestService{
   required T body,  
   void Function(T map)? onSuccess, 
   void Function(int statusCode)? onError}) async{
-    var url = Uri.http(host, path);
+    var url = Uri.parse(host+ path);
     var response = await http.put(url, body: body);
     onResponse(response, onSuccess, onError);
   }
@@ -34,7 +42,7 @@ class RestService{
   dynamic delete<T>({required String path, 
   void Function(T map)? onSuccess, 
   void Function(int statusCode)? onError}) async{
-    var url = Uri.http(host, path);
+   var url = Uri.parse(host+ path);
     var response = await http.delete(url);
     onResponse(response, onSuccess, onError);
   }
