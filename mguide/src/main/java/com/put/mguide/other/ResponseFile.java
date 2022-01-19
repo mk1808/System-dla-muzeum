@@ -11,12 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Message {
-	
-	public Message(String content){
-		this.content=content;
-	}
-	private String content;
-	private Long extraContent;
-
+public class ResponseFile {
+	private String name;
+	private String url;
+	private String type;
+	private long size;
 }
