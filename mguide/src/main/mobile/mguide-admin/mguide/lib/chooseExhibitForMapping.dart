@@ -152,7 +152,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
   getDataRow(Exhibit exhibit) {
     return DataRow(
       cells: [
-        DataCell(Text(exhibit.id.toString())),
+        DataCell(Text(exhibit.number)),
         DataCell(Text(exhibit.name)),
       ],
       onSelectChanged: (newValue) {
