@@ -4,6 +4,8 @@ import 'package:mguide/chooseExhibitForMapping.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
 import 'package:mguide/myAppBar.dart';
+import 'package:mguide/services/exhibitsService.dart';
+import 'package:provider/provider.dart';
 
 class StartExhibitsMapping extends StatefulWidget {
   const StartExhibitsMapping({Key? key}) : super(key: key);
@@ -150,6 +152,10 @@ return TextFormField(
           size: 30.0,
         ),
         onPressed: () {
+              print('inWidget');
+                var exhibitsService = Provider.of<ExhibitsService>(context, listen: false);
+                exhibitsService.getAll();
+
           print('Pressed');
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => ChooseExhibitForMapping()));

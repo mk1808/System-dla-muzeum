@@ -1,0 +1,34 @@
+import 'dart:collection';
+
+import 'package:flutter/cupertino.dart';
+import 'package:mguide/models/models.dart';
+import 'package:mguide/services/restService.dart';
+
+class ExhibitsService extends ChangeNotifier {
+  final List<Exhibit> _exhibits = [];
+
+  UnmodifiableListView<Exhibit> get items => UnmodifiableListView(_exhibits);
+
+  void add(Exhibit exhibit) {
+    _exhibits.add(exhibit);
+    notifyListeners();
+  }
+
+  void removeAll() {
+    _exhibits.clear();
+    notifyListeners();
+  }
+
+    void getAll() {
+      print('in exhibit service');
+    RestService rest = RestService();
+    rest.get<List<dynamic>>(path: "api/exhibits", onSuccess: onSuccess);
+
+    
+  }
+
+  void onSuccess(List<dynamic> map){
+    print(map);
+    notifyListeners();
+  }
+}

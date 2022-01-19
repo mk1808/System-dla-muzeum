@@ -2,8 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:mguide/drawer.dart';
+import 'package:mguide/exhibitsList.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/randomWords.dart';
+import 'package:mguide/services/exhibitsService.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +15,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => ExhibitsService()),
+          ],
+          child:MaterialApp(
         title: 'mGuide Admin',
         theme: ThemeData(
           primaryColor: Colors.cyan[600],
@@ -32,7 +39,11 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.black,
           ),
         ),
-        home: MainPage());
+        home:  const MainPage(),
+        )
+        
+        
+        
+        );
   }
 }
-
