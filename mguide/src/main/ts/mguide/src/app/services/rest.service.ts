@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 
@@ -22,6 +22,17 @@ export class RestService {
 
   public post(url: string, body) {
     return this.http.post(url, body).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public postFile(url: string, body) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+      // "Content-Type": "multipart/form-data" 
+      })
+    };
+    return this.http.post(url, body, httpOptions).pipe(
       catchError(this.handleError)
     );
   }

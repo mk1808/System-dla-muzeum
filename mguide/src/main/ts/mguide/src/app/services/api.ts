@@ -31,3 +31,9 @@ export interface Login {
     mail: string;
     password: string;
 }
+
+
+export interface File {
+    id: number;
+    name: string;
+}

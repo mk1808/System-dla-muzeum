@@ -1,88 +1,105 @@
-.background-style{
-    width:1050px; margin:0 auto; background-color: #bcebdb;     height: 100%;    padding-top: 20px; padding-bottom: 35px;
+.background-style {
+    width: 1050px;
+    margin: 0 auto;
+    background-color: #bcebdb;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 35px;
 }
 
 
-.fields{
-    width:910px;
-    margin:0 auto;
+.fields {
+    width: 910px;
+    margin: 0 auto;
 }
 
 .parent1 {
     display: grid;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 330px;
     grid-row-gap: 0px;
-    align-items: center;}
+    align-items: center;
+}
 
 .parent {
     display: grid;
-    grid-template-columns: 1fr 0.7fr ;
+    grid-template-columns: 1fr 0.7fr;
     grid-template-rows: 1fr;
     grid-column-gap: 30px;
     grid-row-gap: 0px;
     align-items: center;
     margin-bottom: 30px;
-    button{
+
+    button {
         margin-top: 20px;
-        span{
+
+        span {
             margin-left: 3px;
         }
     }
-    }
+}
 
-    .my-table{
-        text-align: center;
-        margin-bottom: 20px;
-        margin-top:20px;
-        table{
-            margin:0 auto; 
-        }
-    }
+.my-table {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
 
-    .wider{
-        min-width: 562px;
+    table {
+        margin: 0 auto;
     }
-.col-num{
+}
+
+.wider {
+    min-width: 562px;
+}
+
+.col-num {
     min-width: 155px;
 }
 
-.col-action{
+.col-action {
     min-width: 140px;
-} 
+}
 
-.field{
+.field {
     margin-bottom: 0px;
 }
 
-.my-table{
+.my-table {
     text-align: center;
     margin-bottom: 30px;
-    margin-top:0px;
+    margin-top: 0px;
     width: 910px;
     margin-left: auto;
     margin-right: auto;
     height: 350px;
     background-color: white;
-  
+
 }
 
 .ql-toolbar.ql-snow+.ql-container.ql-snow {
- 
+
     //height: 285px!important;
 }
 
-::ng-deep{
-    .ql-container{
+::ng-deep {
+    .ql-container {
         max-height: calc(100% - 42px);
     }
 }
 
-.my-photo-upload{
+.my-photo-upload {
     width: 912px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
 }
 
+ngx-dropzone {
+    img {
+        height: 95px;
+        width: 125px;
+        margin-right: 20px;
+    }
+}

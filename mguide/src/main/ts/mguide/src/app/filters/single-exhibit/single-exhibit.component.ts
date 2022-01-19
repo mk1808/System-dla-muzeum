@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Exhibit } from 'src/app/services/api';
 import { DictionaryService } from 'src/app/services/dictionary.service';
 import { ExhibitService } from 'src/app/services/exhibit.service';
+import { FileService } from 'src/app/services/file.service';
 import { PointService } from 'src/app/services/point.service';
 
 
@@ -19,6 +20,7 @@ export class SingleExhibitComponent implements OnInit {
   htmlContent="";
   id;
   exisitingExhibit:Exhibit;
+  existingFiles:any;
   editorContent="";
   modules = {
     toolbar: [
@@ -36,7 +38,8 @@ export class SingleExhibitComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute, private router: Router, private exhibitService:ExhibitService,
-    private dictionaryService:DictionaryService, private pointService:PointService, private fb:FormBuilder) { }
+    private dictionaryService:DictionaryService, private pointService:PointService, private fb:FormBuilder,
+    private fileService:FileService) { }
     exhibitForm: FormGroup;
   ngOnInit(): void {
     debugger;
@@ -44,7 +47,10 @@ export class SingleExhibitComponent implements OnInit {
     this.getExhibitId();
     if (this.id) {
       this.initFormWithExisitingValues();
+      this.getFile(31);
     }
+
+   
   }
   activateRTL(editor) {
     editor.format('align', 'left')
@@ -62,6 +68,7 @@ export class SingleExhibitComponent implements OnInit {
     console.log(event);
     debugger;
     this.files.push(...event.addedFiles);
+    this.upload();
   }
   
   onRemove(event) {
@@ -95,7 +102,7 @@ export class SingleExhibitComponent implements OnInit {
       room: null, 
       description: this.exisitingExhibit.description,
       id:this.exisitingExhibit.id,
-      photo: ''
+      photo: this.exisitingExhibit.photo
     });
 
     })
@@ -130,6 +137,21 @@ export class SingleExhibitComponent implements OnInit {
       console.log(resp)
       this.router.navigate(['/filters']);
     })
+  }
+
+  upload() {
+    this.fileService.upload(this.files[0]).subscribe(resp => {
+      this.exhibitForm.value.photo="/api/files/"+resp.extraContent;
+      console.log(resp)
+    })
+
+  }
+
+  getFile(id) {
+    this.fileService.getFile(id).subscribe(resp => {
+      this.existingFiles = resp;
+    })
+
   }
 
 }

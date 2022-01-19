@@ -29,10 +29,15 @@
 
     <label class="label text-editor align">Zdjęcie</label>
     <ngx-dropzone class="my-photo-upload" (change)="onSelect($event)">
+      <img *ngIf="exhibitForm.value.photo" [src]="exhibitForm.value.photo"/>
       <ngx-dropzone-label>Załaduj zdjęcie</ngx-dropzone-label>
+    
+
+     
+   <!--  
       <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
         [removable]="true" (removed)="onRemove(f)">
-      </ngx-dropzone-image-preview>
+      </ngx-dropzone-image-preview>-->
     </ngx-dropzone>
 
 
@@ -44,3 +49,6 @@
   </div>
   </form>
 </div>
+<!--
+  <img src="http://localhost:8080/api/files/31"/>
+-->
