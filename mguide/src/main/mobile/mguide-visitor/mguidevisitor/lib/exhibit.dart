@@ -5,6 +5,8 @@ import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/myAppBar.dart';
 import 'package:mguidevisitor/models/models.dart' as Models;
 import 'package:mguidevisitor/services/restService.dart';
+import 'package:flutter_html/flutter_html.dart';
+
 class Exhibit extends StatefulWidget {
   final Models.Exhibit? exhibit;
   const Exhibit({ Key? key, this.exhibit }) : super(key: key);
@@ -86,7 +88,12 @@ whole(){
             // color: Colors.yellow,
             child: Image.network(getPhotoSrc(widget.exhibit))
             ),
-        
+        Container(
+          padding: const EdgeInsets.fromLTRB(25.0, 20.0, 25.0, 10.0),
+          //height: 100.0,
+          child: Html(data: widget.exhibit?.description),
+        ),
+       
         
         Container(
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),

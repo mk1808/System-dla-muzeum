@@ -80,7 +80,7 @@ ListTile(
     );
   }
   goToObjectView(){
-    var objectId = 41;
+    var objectId = 45;
     navigateTo(context, new NewExhibitInfo(objectId:objectId));
   }
 

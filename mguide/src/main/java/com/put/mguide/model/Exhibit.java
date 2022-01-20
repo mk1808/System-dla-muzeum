@@ -32,7 +32,7 @@ public class Exhibit{
 	
 	private String number;
 	private String name;
-	@Column(length = 4000)
+	@Column(length = 1000000)
 	private String description;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Room room;
