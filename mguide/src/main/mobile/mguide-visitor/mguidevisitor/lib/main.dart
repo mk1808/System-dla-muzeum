@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mguidevisitor/mainPage.dart';
+import 'package:mguidevisitor/services/exhibitsService.dart';
+import 'package:mguidevisitor/services/pointService.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => ExhibitsService()),
+            ChangeNotifierProvider(create: (context) => PointService()),
+            
+          ],
+          child: MaterialApp(
       title: 'mGuide Admin',
         theme: ThemeData(
           primaryColor: Colors.cyan[600],
@@ -29,7 +38,8 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.black,
           ),
         ),
-        home: MainPage());
+        home: const MainPage(),
+    ));
   }
 }
 
