@@ -8,6 +8,8 @@ import 'package:mguidevisitor/museumInfo.dart';
 import 'package:mguidevisitor/myAppBar.dart';
 import 'package:mguidevisitor/myLogo.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mguidevisitor/services/pointService.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({ Key? key }) : super(key: key);
@@ -102,6 +104,8 @@ class _MainPageState extends State<MainPage> {
         ),
         onPressed: () {
           print('Pressed');
+           var pointService = Provider.of<PointService>(context, listen: false);
+                pointService.getAll();
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => DuringVisiting()));
         },

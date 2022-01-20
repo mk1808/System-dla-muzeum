@@ -11,11 +11,11 @@ class PointService extends ChangeNotifier {
   UnmodifiableListView<Point> get items => UnmodifiableListView(_points);
   Point? get item => (_point);
 
-  void getAll(text) {
+  void getAll() {
     print('in exhibit service');
     RestService rest = RestService();
     rest.get<List<dynamic>>(
-        path: "api/exhibits?name=${text}", onSuccess: onSuccess);
+        path: "api/points", onSuccess: onSuccess);
   }
 
   void create(Point point) {
@@ -25,11 +25,11 @@ class PointService extends ChangeNotifier {
         path: "api/points", body: point.toJson(), onSuccess: onSuccessCreate);
   }
 
-  void onSuccess(dynamic object) {
-    print('crested' + object['id']);
-    // _points.clear();
-    //list.forEach((element) => _points.add(Exhibit.fromJson(element)));
-    print(object);
+  void onSuccess(dynamic list) {
+   
+       _points.clear();
+    list.forEach((element) => _points.add(Point.fromJson(element)));
+    print(list);
     notifyListeners();
   }
 
