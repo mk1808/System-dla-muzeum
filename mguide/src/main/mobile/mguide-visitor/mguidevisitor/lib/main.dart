@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/services/exhibitsService.dart';
 import 'package:mguidevisitor/services/pointService.dart';
+import 'package:mguidevisitor/services/positionService.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
           providers: [
             ChangeNotifierProvider(create: (context) => ExhibitsService()),
             ChangeNotifierProvider(create: (context) => PointService()),
-            
+            ChangeNotifierProvider(create: (context) => PositionService()),
           ],
           child: MaterialApp(
       title: 'mGuide Admin',

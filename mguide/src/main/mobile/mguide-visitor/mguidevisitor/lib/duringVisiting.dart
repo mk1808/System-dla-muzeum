@@ -4,6 +4,8 @@ import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/museumInfo.dart';
 import 'package:mguidevisitor/myAppBar.dart';
+import 'package:mguidevisitor/services/positionService.dart';
+import 'package:provider/provider.dart';
 
 class DuringVisiting extends StatefulWidget {
   const DuringVisiting({Key? key}) : super(key: key);
@@ -71,9 +73,16 @@ class _DuringVisitingState extends State<DuringVisiting> {
                   padding: const EdgeInsets.symmetric(
                       vertical: 20.0, horizontal: 20.0),
                   child: SizedBox(width: 200, height: 50, child: getButton2())),
-        
+      getPosition(),
       ],
     ));
+  }
+
+  getPosition() {
+    return Consumer<PositionService>(
+        builder: (context, positionService, child) {
+      return Text(positionService.lastKnownPosition);
+    });
   }
 
   getRow() {
@@ -111,6 +120,7 @@ class _DuringVisitingState extends State<DuringVisiting> {
           size: 30.0,
         ),
         onPressed: () {
+          Provider.of<PositionService>(context, listen: false).stopTracking();
           print('Pressed');
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => MainPage()));
@@ -216,6 +226,7 @@ class _DuringVisitingState extends State<DuringVisiting> {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<PositionService>(context, listen: false).startTracking();
     return Scaffold(
         appBar: MyAppBar(),
         drawer: Menu(),

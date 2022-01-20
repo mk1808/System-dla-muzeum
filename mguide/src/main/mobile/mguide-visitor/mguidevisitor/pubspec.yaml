@@ -40,6 +40,7 @@ dependencies:
   http: ^0.13.4
   after_layout: ^1.1.0
   flutter_html: ^2.2.1
+  permission_handler: ^8.0.0+2
   
 
 
