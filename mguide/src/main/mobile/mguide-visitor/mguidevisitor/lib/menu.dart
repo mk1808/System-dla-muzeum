@@ -53,7 +53,7 @@ class _MenuState extends State<Menu> {
                    ListTile(
               leading: Icon(Icons.star_rounded ),
               title: Text('Widok obiektu'),
-              onTap: () => navigateTo(context, new NewExhibitInfo())),
+              onTap: goToObjectView),
          /* ListTile(
               leading: Icon(Icons.star_rounded ),
               title: Text('Mapowanie eksponatów'),
@@ -79,4 +79,9 @@ ListTile(
       ),
     );
   }
+  goToObjectView(){
+    var objectId = 41;
+    navigateTo(context, new NewExhibitInfo(objectId:objectId));
+  }
+
 }

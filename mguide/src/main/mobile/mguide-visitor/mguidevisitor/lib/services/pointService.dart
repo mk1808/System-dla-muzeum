@@ -40,4 +40,8 @@ class PointService extends ChangeNotifier {
     _point = Point.fromJson(object);
     notifyListeners();
   }
+
+  Point? getPointById(int id){
+    return _points.firstWhere((element) => element.id==id);
+  }
 }

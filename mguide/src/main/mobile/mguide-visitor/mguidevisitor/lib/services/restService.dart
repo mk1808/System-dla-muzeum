@@ -5,6 +5,7 @@ import 'dart:convert' as convert;
 
 class RestService {
   static const host = "http://192.168.33.3:8080/";
+  static const hostPhoto = "http://192.168.33.3:8080";
 
   dynamic get<T>(
       {required String path,

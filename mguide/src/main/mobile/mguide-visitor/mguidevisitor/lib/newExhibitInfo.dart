@@ -3,10 +3,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/exhibit.dart';
 import 'package:mguidevisitor/menu.dart';
+import 'package:mguidevisitor/models/models.dart' as Models;
 import 'package:mguidevisitor/museumInfo.dart';
 import 'package:mguidevisitor/myAppBar.dart';
+import 'package:mguidevisitor/services/pointService.dart';
+import 'package:mguidevisitor/services/restService.dart';
+import 'package:provider/provider.dart';
 class NewExhibitInfo extends StatefulWidget {
-  const NewExhibitInfo({ Key? key }) : super(key: key);
+  final int objectId;
+  const NewExhibitInfo({ Key? key, this.objectId=0 }) :  super(key: key);
+     
 
   @override
   _NewExhibitInfoState createState() => _NewExhibitInfoState();
@@ -50,7 +56,7 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
     );
   }
 
-  getCenter3() {
+  getCenter3(Models.Exhibit? exhibit) {
     return Container(
         child: Column(
       children: [
@@ -58,20 +64,21 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
           height: 80.0,
           child: Text(
-              'Eksponat numer 3 ',
+              'Eksponat numer ${exhibit?.number}',
               textAlign: TextAlign.left,
               style: midFont),
         ),
         Container(
           padding: const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 20.0),
           height: 160.0,
-          child: Text('Obraz "Bitwa pod Grunwaldem"',
+          child: Text('${exhibit?.name}',
               textAlign: TextAlign.center, style: _biggerFont2),
         ),Container(
               padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
               height: 300.0,
               // color: Colors.yellow,
-              child: Image(image: AssetImage('./assets/index.jpg'))),
+              child:Image.network(getPhotoSrc(exhibit))
+              ),
       
         Container(
             padding:
@@ -83,6 +90,12 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
             child: SizedBox(width: 300, height: 50, child: getButton2())),
       ],
     ));
+  }
+
+  getPhotoSrc(Models.Exhibit? exhibit){
+    if(exhibit!.photo!=null){
+      return RestService.hostPhoto + exhibit.photo;
+    }return "";
   }
 
   getRow() {
@@ -229,7 +242,10 @@ getTab2() {
     return Scaffold(
         appBar: MyAppBar(),
         drawer: Menu(),
-        body: getCenter3());
+        body: Consumer<PointService>(builder: (context, pointService, child) {
+          print('myid'+widget.objectId.toString());
+          return getCenter3(pointService.getPointById(widget.objectId)?.exhibit);
+        }));
   }
 }
 
