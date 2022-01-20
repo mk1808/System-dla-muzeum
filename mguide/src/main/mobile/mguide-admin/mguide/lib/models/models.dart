@@ -23,26 +23,26 @@ class Exhibit {
   final String photo;
   final bool? connected;
 
-  Exhibit(this.id, this.name, this.number, this.description, this.room, this.photo, this.connected);
+  Exhibit(this.id, this.name, this.number, this.description, this.room,
+      this.photo, this.connected);
 
   Exhibit.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         name = json['name'],
         number = json['number'],
         description = json['description'],
-        room = json['room']!=null?Room.fromJson(json['room']):null,
+        room = json['room'] != null ? Room.fromJson(json['room']) : null,
         photo = json['photo'],
         connected = json['connected'];
-   
 
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,
-        'number' : number,
-        'description' :description,
-        'room' : room?.toJson(),
-        'photo' : photo,
-        'connected' : connected
+        'number': number,
+        'description': description,
+        'room': room?.toJson(),
+        'photo': photo,
+        'connected': connected
       };
 }
 
@@ -73,13 +73,14 @@ class Point {
 
   Point.fromJson(Map<String, dynamic> json)
       : id = json['id'],
-        exhibit = json['exhibit']!=null?Exhibit.fromJson(json['exhibit']):null,
+        exhibit =
+            json['exhibit'] != null ? Exhibit.fromJson(json['exhibit']) : null,
         x = json['x'],
         y = json['y'],
         z = json['z'];
 
   Map<String, dynamic> toJson() => {
-        'id': id!=null?id:"",
+        'id': id != null ? id : "",
         'exhibit': exhibit?.toJson(),
         'x': x,
         'y': y,
