@@ -5,6 +5,7 @@ import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
 import 'package:mguide/myAppBar.dart';
 import 'package:mguide/services/exhibitsService.dart';
+import 'package:mguide/services/positionService.dart';
 import 'package:provider/provider.dart';
 
 class StartExhibitsMapping extends StatefulWidget {
@@ -118,10 +119,19 @@ class _StartExhibitsMappingState extends State<StartExhibitsMapping> {
               padding:
                   const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
               child: getInput())*/
+              getPosition(),
         ],
       ))
     ]);
   }
+
+  getPosition() {
+    return Consumer<PositionService>(
+        builder: (context, positionService, child) {
+      return Text(positionService.lastKnownPosition);
+    });
+  }
+
 getInput(){
 return TextFormField(
             decoration: const InputDecoration(
@@ -177,6 +187,7 @@ return TextFormField(
           size: 30.0,
         ),
         onPressed: () {
+          Provider.of<PositionService>(context, listen: false).stopTracking();
           print('Pressed');
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => MainPage()));
@@ -292,6 +303,7 @@ return TextFormField(
 
   @override
   Widget build(BuildContext context) {
+      Provider.of<PositionService>(context, listen: false).startTracking();
     return Scaffold(
         appBar: MyAppBar(),
         drawer: menu(),
