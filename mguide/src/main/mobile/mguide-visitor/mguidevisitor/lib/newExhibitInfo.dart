@@ -51,7 +51,7 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
     return Center(
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [Text('170 Reviews'), Text('170 Reviews'), getButton()]),
+          children: [Text('170 Reviews'), Text('170 Reviews'), getButton2()]),
       
     );
   }
@@ -83,7 +83,7 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
         Container(
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-            child: SizedBox(width: 300, height: 50, child: getButton())),
+            child: SizedBox(width: 300, height: 50, child: getButton(exhibit))),
             Container(
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
@@ -98,15 +98,9 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
     }return "";
   }
 
-  getRow() {
-    return Row(children: [
-      const Text('170 Reviews'),
-      const Text('170 Reviews'),
-      getButton()
-    ]);
-  }
 
-  getButton() {
+
+  getButton(Models.Exhibit? exhibit) {
     return ElevatedButton.icon(
         label: Text('Zobacz opis'),
         icon: Icon(
@@ -117,7 +111,7 @@ class _NewExhibitInfoState extends State<NewExhibitInfo> {
         onPressed: () {
           print('Pressed');
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Exhibit()));
+              MaterialPageRoute(builder: (context) => Exhibit(exhibit:exhibit)));
         },
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),

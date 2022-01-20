@@ -3,8 +3,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/myAppBar.dart';
+import 'package:mguidevisitor/models/models.dart' as Models;
+import 'package:mguidevisitor/services/restService.dart';
 class Exhibit extends StatefulWidget {
-  const Exhibit({ Key? key }) : super(key: key);
+  final Models.Exhibit? exhibit;
+  const Exhibit({ Key? key, this.exhibit }) : super(key: key);
 
   @override
   _ExhibitState createState() => _ExhibitState();
@@ -68,20 +71,21 @@ whole(){
           Container(
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
           height: 80.0,
-          child: Text('Eksponat numer 1',
+          child: Text('Eksponat numer ${widget.exhibit?.number}',
               textAlign: TextAlign.left, style: midFont),
         ),
         Container(
           padding: const EdgeInsets.fromLTRB(12.0, 40.0, 12.0, 10.0),
           height: 120.0,
-          child: Text('Obraz "Bitwa pod Grunwaldem" - Jan Matejko',
+          child: Text('${widget.exhibit?.name}',
               textAlign: TextAlign.center, style: _biggerFont2),
         ),
         Container(
             padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
             height: 300.0,
             // color: Colors.yellow,
-            child: Image(image: AssetImage('./assets/index.jpg'))),
+            child: Image.network(getPhotoSrc(widget.exhibit))
+            ),
         
         
         Container(
@@ -257,6 +261,12 @@ whole(){
 
       ],
     ));
+  }
+
+    getPhotoSrc(Models.Exhibit? exhibit){
+    if(exhibit!.photo!=null){
+      return RestService.hostPhoto + exhibit.photo;
+    }return "";
   }
 
   getRow() {
