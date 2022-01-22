@@ -103,7 +103,7 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
   getInput() {
     return TextFormField(
       decoration: const InputDecoration(
-        hintText: 'Wyszukaj po nazwie',
+        hintText: 'Wyszukaj po nazwie lub numerze',
       ),
       validator: (String? value) {
         if (value == null || value.isEmpty) {

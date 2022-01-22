@@ -45,11 +45,11 @@ public class ExhibitServiceImpl implements ExhibitService{
 		
 		
 		if (!isNameEmpty&&!isNumberEmpty) {
-			return exhibitRepository.getByNumberContainingAndNameContaining(number, name);	
+			return exhibitRepository.getByNumberContainingIgnoreCaseAndNameContainingIgnoreCase(number, name);	
 		}else if(!isNameEmpty) {
-			return exhibitRepository.getByNameContaining(name);
+			return exhibitRepository.getByNameContainingIgnoreCase(name);
 		}else if(!isNumberEmpty) {
-			return exhibitRepository.getByNumberContaining(number);
+			return exhibitRepository.getByNumberContainingIgnoreCase(number);
 		}
 		
 		return exhibitRepository.findAll();
@@ -73,11 +73,11 @@ public class ExhibitServiceImpl implements ExhibitService{
 
 		List<Exhibit> all = new ArrayList<Exhibit>();
 		if (connected && disconnected) {
-			all.addAll(exhibitRepository.getByName(name));
+			all.addAll(exhibitRepository.getByNameContainingIgnoreCase(name));
 		} else if (connected) {
-			all.addAll(exhibitRepository.getByNameAndConnected(name, true));
+			all.addAll(exhibitRepository.getByNameContainingIgnoreCaseAndConnected(name, true));
 		} else if (disconnected) {
-			all.addAll(exhibitRepository.getByNameAndConnected(name, false));
+			all.addAll(exhibitRepository.getByNameContainingIgnoreCaseAndConnected(name, false));
 		}
 
 		return all;
@@ -96,6 +96,19 @@ public class ExhibitServiceImpl implements ExhibitService{
 			exhibit.setRoom(null);
 		}
 		return exhibit;
+	}
+
+
+	@Override
+	public List<Exhibit> getFilteredListCommon(Long pageNo, String nameOrNumber) {
+		Boolean isEmpty = isEmpty(nameOrNumber);
+		
+		
+		if (!isEmpty) {
+			return exhibitRepository.getByNumberContainingIgnoreCaseOrNameContainingIgnoreCase(nameOrNumber, nameOrNumber);	
+		}
+		
+		return exhibitRepository.findAll();
 	}
 
 }

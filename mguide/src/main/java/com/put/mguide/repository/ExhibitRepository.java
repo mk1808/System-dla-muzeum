@@ -1,5 +1,6 @@
 package com.put.mguide.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,5 +19,10 @@ public interface ExhibitRepository extends JpaRepository<Exhibit, Long>{
 	List<Exhibit> getByNameAndConnected(String name, Boolean connected);
 	List<Exhibit> getByNumberContaining(String number);
 	List<Exhibit> getByNumberContainingAndNameContaining(String number, String name);
+	List<Exhibit> getByNumberContainingIgnoreCaseAndNameContainingIgnoreCase(String number, String name);
+	List<Exhibit> getByNameContainingIgnoreCase(String name);
+	List<Exhibit> getByNumberContainingIgnoreCase(String number);
+	List<Exhibit> getByNameContainingIgnoreCaseAndConnected(String name, boolean b);
+	List<Exhibit> getByNumberContainingIgnoreCaseOrNameContainingIgnoreCase(String nameOrNumber, String nameOrNumber2);
 
 }

@@ -23,7 +23,7 @@ class ExhibitsService extends ChangeNotifier {
     print('in exhibit service');
     RestService rest = RestService();
     rest.get<List<dynamic>>(
-        path: "api/exhibits?name=${text}", onSuccess: onSuccess);
+        path: "api/exhibits/common?nameOrNumber=${text}", onSuccess: onSuccess);
   }
 
   void onSuccess(List<dynamic> list) {

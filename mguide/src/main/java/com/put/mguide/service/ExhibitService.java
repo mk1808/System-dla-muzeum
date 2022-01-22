@@ -22,4 +22,6 @@ public interface ExhibitService {
 
 	List<Exhibit> getFIlteredListWithType(Long pageNo, String name, Boolean disconnected, Boolean connected);
 
+	List<Exhibit> getFilteredListCommon(Long pageNo, String nameOrNumber);
+
 }

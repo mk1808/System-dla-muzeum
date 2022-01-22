@@ -37,6 +37,12 @@ public class ExhibitController {
 		return ResponseEntity.ok(exhibitService.getFilteredList(pageNo, name, number));
 	}
 	
+	@GetMapping("/common")
+	ResponseEntity<List<Exhibit>> getFIlteredListCommon(@RequestParam(required = false) Long pageNo, @RequestParam(required = false) String nameOrNumber) {
+
+		return ResponseEntity.ok(exhibitService.getFilteredListCommon(pageNo, nameOrNumber));
+	}
+	
 	@GetMapping("/withConnections")
 	ResponseEntity<List<Exhibit>> getFIlteredListType(@RequestParam Long pageNo, @RequestParam String name, @RequestParam Boolean disconnected, @RequestParam Boolean connected) {
 
