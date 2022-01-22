@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/services/exhibitsService.dart';
+import 'package:mguidevisitor/services/notificationsService.dart';
 import 'package:mguidevisitor/services/pointService.dart';
 import 'package:mguidevisitor/services/positionService.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.init();
   runApp(const MyApp());
 }
 

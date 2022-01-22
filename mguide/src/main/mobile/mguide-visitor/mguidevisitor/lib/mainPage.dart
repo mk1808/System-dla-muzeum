@@ -8,6 +8,7 @@ import 'package:mguidevisitor/museumInfo.dart';
 import 'package:mguidevisitor/myAppBar.dart';
 import 'package:mguidevisitor/myLogo.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mguidevisitor/services/notificationsService.dart';
 import 'package:mguidevisitor/services/pointService.dart';
 import 'package:provider/provider.dart';
 

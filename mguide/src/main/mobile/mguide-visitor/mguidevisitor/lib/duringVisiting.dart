@@ -8,6 +8,7 @@ import 'package:mguidevisitor/models/models.dart';
 import 'package:mguidevisitor/museumInfo.dart';
 import 'package:mguidevisitor/myAppBar.dart';
 import 'package:mguidevisitor/newExhibitInfo.dart';
+import 'package:mguidevisitor/services/notificationsService.dart';
 import 'package:mguidevisitor/services/pointService.dart';
 import 'package:mguidevisitor/services/positionService.dart';
 import 'package:provider/provider.dart';
@@ -95,6 +96,7 @@ class _DuringVisitingState extends State<DuringVisiting> {
           foundCurrentExhibit = true;
           pointService.removePoint(currentPoint);
           Timer(Duration(milliseconds: 1), () {
+            NotificationService.show();
             Navigator.push(
                 context,
                 MaterialPageRoute(

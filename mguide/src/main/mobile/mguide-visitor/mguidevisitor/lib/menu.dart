@@ -3,6 +3,7 @@ import 'package:mguidevisitor/exhibit.dart';
 import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/museumInfo.dart';
 import 'package:mguidevisitor/newExhibitInfo.dart';
+import 'package:mguidevisitor/services/notificationsService.dart';
 
 class Menu extends StatefulWidget {
   const Menu({ Key? key }) : super(key: key);
@@ -79,9 +80,10 @@ ListTile(
       ),
     );
   }
-  goToObjectView(){
+  goToObjectView() {
     var objectId = 48;
-    navigateTo(context, new NewExhibitInfo(objectId:objectId));
+    NotificationService.show();
+    navigateTo(context, new NewExhibitInfo(objectId: objectId));
   }
 
 }
