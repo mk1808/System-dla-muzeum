@@ -4,6 +4,7 @@ import 'package:mguidevisitor/duringVisiting.dart';
 import 'package:mguidevisitor/menu.dart';
 import 'package:mguidevisitor/myAppBar.dart';
 import 'package:mguidevisitor/models/models.dart' as Models;
+import 'package:mguidevisitor/services/changeHtmlStyleService.dart';
 import 'package:mguidevisitor/services/restService.dart';
 import 'package:flutter_html/flutter_html.dart';
 
@@ -91,7 +92,13 @@ whole(){
         Container(
           padding: const EdgeInsets.fromLTRB(25.0, 20.0, 25.0, 10.0),
           //height: 100.0,
-          child: Html(data: widget.exhibit?.description),
+          child: Html(data: ChangeHtmlStyleService().changeHtml(widget.exhibit?.description), style: {
+            "p": Style(
+              fontFamily: 'Roboto',
+            ),
+          },
+          
+          ),
         ),
        
         

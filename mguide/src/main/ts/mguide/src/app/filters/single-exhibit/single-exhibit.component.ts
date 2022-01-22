@@ -8,7 +8,8 @@ import { FileService } from 'src/app/services/file.service';
 import { PointService } from 'src/app/services/point.service';
 
 
-
+ const P_TAG = `<p><br></p>`;
+ const P_TAG_WITH_CLASS = /<p .*\"><br><\/p>/;
 @Component({
   selector: 'app-single-exhibit',
   templateUrl: './single-exhibit.component.html',
@@ -114,6 +115,7 @@ export class SingleExhibitComponent implements OnInit {
     debugger;
     console.log(form)
     let exhibit:Exhibit = this.exhibitForm.value;
+    exhibit.description=this.changeDescription(exhibit.description);
     if(exhibit.id){
       this.update(exhibit)
     }else {
@@ -153,6 +155,18 @@ export class SingleExhibitComponent implements OnInit {
     })
 
   }
+
+  changeDescription(text){
+
+
+var textSplited= text.split(P_TAG);
+var textJoined = textSplited.join("");
+
+var textSplited2= textJoined.split(P_TAG_WITH_CLASS);
+var finalText = textSplited2.join("");
+return finalText;
+
+}
 
 }
 
