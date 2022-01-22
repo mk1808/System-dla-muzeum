@@ -2,6 +2,7 @@ package com.example.mguidevisitor.signal_detector
 
 import com.example.mguidevisitor.position_estimator.PositionEstimator
 import com.example.mguidevisitor.signal_detector.SignalDetectionConfig.Companion.config
+import android.util.Log
 
 class StereoSignalDetector {
 
@@ -14,6 +15,7 @@ class StereoSignalDetector {
         signalDetectorLeft.reset()
         signalDetectorRight.reset()
         positionEstimator = PositionEstimator()
+        previousDetectionTime = 0.0
     }
 
     private val factorOfBetweenCycleGap = 2.5
@@ -48,6 +50,7 @@ class StereoSignalDetector {
     fun onSignalDetection() {
         val currentDetectionTime = whenSignalDetected()
         val delta = currentDetectionTime - previousDetectionTime
+        //Log.v(TAG, "onSignalDetection: ${delta},\t\t\t ${config.emittingWindowLength}")
         if (delta > config.emittingWindowLength * 2.0) {
             // nowy cykl
             checkPosition()
@@ -60,7 +63,7 @@ class StereoSignalDetector {
     }
 
     fun checkPosition() {
-        //Log.v(TAG, "size: ${signalDetections.size}")
+        //Log.v(TAG, "detections: ${signalDetections}")
         if (signalDetections.size < 3) return
         positionEstimator.resetDetections()
         for (i in 0 until signalDetections.size) {

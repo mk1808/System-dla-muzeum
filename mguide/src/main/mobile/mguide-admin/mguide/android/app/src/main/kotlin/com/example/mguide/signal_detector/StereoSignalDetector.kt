@@ -14,6 +14,7 @@ class StereoSignalDetector {
         signalDetectorLeft.reset()
         signalDetectorRight.reset()
         positionEstimator = PositionEstimator()
+        previousDetectionTime = 0.0
     }
 
     private val factorOfBetweenCycleGap = 2.5
