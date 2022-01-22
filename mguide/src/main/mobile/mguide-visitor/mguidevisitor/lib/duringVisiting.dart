@@ -1,9 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguidevisitor/mainPage.dart';
 import 'package:mguidevisitor/menu.dart';
+import 'package:mguidevisitor/models/models.dart';
 import 'package:mguidevisitor/museumInfo.dart';
 import 'package:mguidevisitor/myAppBar.dart';
+import 'package:mguidevisitor/newExhibitInfo.dart';
+import 'package:mguidevisitor/services/pointService.dart';
 import 'package:mguidevisitor/services/positionService.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +20,7 @@ class DuringVisiting extends StatefulWidget {
 }
 
 class _DuringVisitingState extends State<DuringVisiting> {
+  bool foundCurrentExhibit = false;
   final _biggerFont = const TextStyle(fontSize: 100.0);
   final _biggerFont2 =
       const TextStyle(fontSize: 27.0, fontWeight: FontWeight.w600);
@@ -79,8 +85,23 @@ class _DuringVisitingState extends State<DuringVisiting> {
   }
 
   getPosition() {
-    return Consumer<PositionService>(
-        builder: (context, positionService, child) {
+    return Consumer2<PositionService, PointService>(
+        builder: (context, positionService, pointService, child) {
+      Point? p = positionService.position;
+      if (!foundCurrentExhibit && p != null) {
+        Point currentPoint = pointService.getPointInCurrentPosition(p);
+        int? id = currentPoint.id;
+        if (id != null) {
+          foundCurrentExhibit = true;
+          pointService.removePoint(currentPoint);
+          Timer(Duration(milliseconds: 1), () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => NewExhibitInfo(objectId: id)));
+          });
+        }
+      }
       return Text(positionService.lastKnownPosition);
     });
   }

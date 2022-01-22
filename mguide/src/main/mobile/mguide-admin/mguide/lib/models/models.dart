@@ -65,9 +65,9 @@ class Room {
 class Point {
   final int? id;
   final Exhibit? exhibit;
-  final double x;
-  final double y;
-  final double z;
+  final double? x;
+  final double? y;
+  final double? z;
 
   Point(this.id, this.exhibit, this.x, this.y, this.z);
 

@@ -44,4 +44,15 @@ class PointService extends ChangeNotifier {
   Point? getPointById(int id){
     return _points.firstWhere((element) => element.id==id);
   }
+
+  Point getPointInCurrentPosition(Point point) {
+    return _points.firstWhere(
+        (element) => !element.seen && element.getDistanceToPoint(point) < 0.5,
+        orElse: () => Point(null, null, 0, 0, 0));
+  }
+
+  void removePoint(Point point) {
+    point.seen = true;
+  }
+
 }

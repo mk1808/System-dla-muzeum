@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class User {
   final String name;
   final String email;
@@ -68,6 +70,7 @@ class Point {
   final double x;
   final double y;
   final double z;
+  bool seen = false;
 
   Point(this.id, this.exhibit, this.x, this.y, this.z);
 
@@ -86,4 +89,10 @@ class Point {
         'y': y,
         'z': z,
       };
+  double getDistanceToPoint(Point point){
+    var powX = pow(this.x-point.x, 2);
+    var powY = pow(this.y-point.y, 2);
+    
+    return sqrt(powX+powY);
+  }
 }

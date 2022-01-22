@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mguide/chooseExhibitForMapping.dart';
 import 'package:mguide/mainPage.dart';
 import 'package:mguide/menu.dart';
+import 'package:mguide/models/models.dart';
 import 'package:mguide/myAppBar.dart';
 import 'package:mguide/services/exhibitsService.dart';
 import 'package:mguide/services/positionService.dart';
@@ -167,8 +168,9 @@ return TextFormField(
                 exhibitsService.getAll("");
 
           print('Pressed');
+          Point? position = Provider.of<PositionService>(context, listen: false).position;
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ChooseExhibitForMapping()));
+              MaterialPageRoute(builder: (context) => ChooseExhibitForMapping(point:position)));
         },
         /*style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),

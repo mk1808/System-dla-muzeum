@@ -10,7 +10,8 @@ import 'package:mguide/successMapping.dart';
 import 'package:provider/provider.dart';
 
 class ChooseExhibitForMapping extends StatefulWidget {
-  const ChooseExhibitForMapping({Key? key}) : super(key: key);
+  final Point? point;
+  const ChooseExhibitForMapping({Key? key, this.point}) : super(key: key);
 
   @override
   _ChooseExhibitForMappingState createState() =>
@@ -121,7 +122,8 @@ class _ChooseExhibitForMappingState extends State<ChooseExhibitForMapping> {
 
   onTapOk(exhibit) {
     var pointService = Provider.of<PointService>(context, listen: false);
-    Point point = new Point(null, exhibit, 1.0, 2.0, 1.2);
+   Point point = new Point(null, exhibit, widget.point?.x, widget.point?.y, widget.point?.z);
+    
     pointService.create(point);
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SuccessMapping()));
