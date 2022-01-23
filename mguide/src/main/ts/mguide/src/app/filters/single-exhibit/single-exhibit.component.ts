@@ -89,6 +89,7 @@ export class SingleExhibitComponent implements OnInit {
       room: {}, 
       description: '',
       photo: '',
+      link:'',
       id:null
     });
   }
@@ -103,6 +104,7 @@ export class SingleExhibitComponent implements OnInit {
       room: null, 
       description: this.exisitingExhibit.description,
       id:this.exisitingExhibit.id,
+      link:this.exisitingExhibit.link,
       photo: this.exisitingExhibit.photo
     });
 

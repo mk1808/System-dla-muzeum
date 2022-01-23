@@ -39,4 +39,5 @@ public class Exhibit{
 	private String photo;
 	@Column(columnDefinition="boolean default false")
 	private Boolean connected = false;
+	private String link;
 }

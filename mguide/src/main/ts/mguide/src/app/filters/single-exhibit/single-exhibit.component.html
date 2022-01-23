@@ -39,7 +39,16 @@
         [removable]="true" (removed)="onRemove(f)">
       </ngx-dropzone-image-preview>-->
     </ngx-dropzone>
+    <div class="fields margin">
+      <div class="field">
+        <label class="label align">Link do filmu</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Link" formControlName="link">
+        </div>
+      </div>
+  
 
+    </div>
 
   <div class="fields parent1">
     <button class="button " (click)="onCancelClick()"> <span>Anuluj</span></button>

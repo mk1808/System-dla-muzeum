@@ -5,6 +5,7 @@ export interface Exhibit {
     description?: string;
     room?: Room|Object;
     photo?: string;
+    link?:string;
 }
 
 export interface AppUser {
