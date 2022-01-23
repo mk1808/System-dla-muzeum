@@ -21,10 +21,11 @@ class Exhibit {
   final String description;
   final Room? room;
   final String photo;
+  final String? link;
   final bool? connected;
 
   Exhibit(this.id, this.name, this.number, this.description, this.room,
-      this.photo, this.connected);
+      this.photo, this.link, this.connected);
 
   Exhibit.fromJson(Map<String, dynamic> json)
       : id = json['id'],
@@ -33,6 +34,7 @@ class Exhibit {
         description = json['description'],
         room = json['room'] != null ? Room.fromJson(json['room']) : null,
         photo = json['photo'],
+        link = json['link'],
         connected = json['connected'];
 
   Map<String, dynamic> toJson() => {
@@ -42,8 +44,10 @@ class Exhibit {
         'description': description,
         'room': room?.toJson(),
         'photo': photo,
+        'link': link,
         'connected': connected
       };
+
 }
 
 class Room {

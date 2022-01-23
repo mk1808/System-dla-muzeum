@@ -7,6 +7,7 @@ import 'package:mguidevisitor/models/models.dart' as Models;
 import 'package:mguidevisitor/services/changeHtmlStyleService.dart';
 import 'package:mguidevisitor/services/restService.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class Exhibit extends StatefulWidget {
   final Models.Exhibit? exhibit;
@@ -26,7 +27,34 @@ class _ExhibitState extends State<Exhibit> {
   final headerFont = const TextStyle(fontSize: 30.0, fontWeight: FontWeight.w300);
   final header2Font = const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w300);
   final defaultFont = const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w300);
+  YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: 'dQw4w9WgXcQ',
+    flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: true,
+    ),
+);
 
+      String getLink(){
+        if(widget.exhibit!= null){
+          var link = widget.exhibit?.link;
+          if(link != null)
+            return link.replaceAll("https://www.youtube.com/watch?v=", "");
+        }
+        return "dQw4w9WgXcQ";
+      }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = YoutubePlayerController(
+    initialVideoId: getLink(),
+    flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: true,
+    ),
+);
+  }
 
  getContainer() {
     return Container(
@@ -100,8 +128,20 @@ whole(){
           
           ),
         ),
+        widget.exhibit?.link != null ? YoutubePlayer(
+          controller: _controller,
+          showVideoProgressIndicator: true,
+          // videoProgressIndicatorColor: Colors.amber,
+          progressColors: ProgressBarColors(
+            playedColor: Colors.amber,
+            handleColor: Colors.amberAccent,
+          ),
+          onReady: () {
+            _controller.addListener(() {});
+          },
+        ): Text(""),
        
-        
+        /*
         Container(
           padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
           //height: 100.0,
@@ -266,7 +306,7 @@ whole(){
               textAlign: TextAlign.justify,
               style: defaultFont),
         ),
-
+*/
 
         Container(
             padding:

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.put.mguide.model.Exhibit;
 import com.put.mguide.model.Room;
@@ -34,6 +35,9 @@ public class ExhibitServiceImpl implements ExhibitService{
 
 	public Exhibit create(Exhibit exhibit) {
 		exhibit=setRoom(exhibit);
+		if (exhibit.getLink()!=null&&exhibit.getLink().trim().isEmpty()) {
+			exhibit.setLink(null);
+		}
 		
 		return exhibitRepository.save(exhibit);
 	}

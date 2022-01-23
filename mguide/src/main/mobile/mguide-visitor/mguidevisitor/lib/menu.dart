@@ -81,7 +81,7 @@ ListTile(
     );
   }
   goToObjectView() {
-    var objectId = 48;
+    var objectId =42;// 48;
     NotificationService.show();
     navigateTo(context, new NewExhibitInfo(objectId: objectId));
   }
